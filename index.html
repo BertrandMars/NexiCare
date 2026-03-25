@@ -92,27 +92,12 @@ body {
   font-weight: 300;
   animation: fadeUp .8s .3s ease both;
 }
-.hero-cta-row a { text-decoration: none; display: inline-block; }
 .hero-cta-row {
   display: flex;
   align-items: center;
   gap: 24px;
   animation: fadeUp .8s .45s ease both;
 }
-.btn-primary {
-  background: var(--orange);
-  color: #fff;
-  border: none;
-  padding: 16px 36px;
-  border-radius: 6px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform .2s, box-shadow .2s;
-  letter-spacing: .02em;
-}
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(224,123,57,.4); }
 .hero-note { font-size:13px; color:rgba(255,255,255,.4); }
 
 .hero-right {
@@ -123,6 +108,47 @@ body {
   position: relative;
   z-index: 2;
   animation: fadeLeft 1s .4s ease both;
+}
+
+/* ── BOUTONS / CTA ───────────────────────────────────── */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: transform .2s, box-shadow .2s, border-color .2s, color .2s, background .2s;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  padding: 16px 36px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(224,123,57,.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: rgba(255,255,255,.7);
+  border: 1px solid rgba(255,255,255,.2);
+  padding: 16px 32px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.btn-secondary:hover {
+  border-color: rgba(255,255,255,.5);
+  color: #fff;
 }
 
 /* ── MOCKUP POSTE DE COMMANDE ─────────────────────────── */
@@ -728,30 +754,7 @@ section { padding: 100px 80px; }
 .cta-final .section-title { color: #fff; max-width: 600px; margin: 0 auto 20px; }
 .cta-final .section-sub   { color: rgba(255,255,255,.55); margin: 0 auto 48px; }
 .cta-row { display: flex; align-items: center; justify-content: center; gap: 20px; }
-.cta-row a { text-decoration: none; display: inline-block; }
-.btn-secondary {
-  background: transparent;
-  color: rgba(255,255,255,.7);
-  border: 1px solid rgba(255,255,255,.2);
-  padding: 16px 32px;
-  border-radius: 6px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-  cursor: pointer;
-  transition: border-color .2s, color .2s;
-}
-.btn-secondary:hover { border-color: rgba(255,255,255,.5); color: #fff; }
 
-/* Fix anchor-wrapped buttons */
-a:has(.btn-primary), a:has(.btn-secondary) {
-  text-decoration: none;
-  display: inline-block;
-}
-a:has(.btn-primary) .btn-primary,
-a:has(.btn-secondary) .btn-secondary {
-  cursor: pointer;
-  pointer-events: auto;
-}
 .founders-strip {
   margin-top: 60px;
   display: flex;
@@ -838,6 +841,118 @@ a:has(.btn-secondary) .btn-secondary {
   color: rgba(255,255,255,.25);
   letter-spacing: .06em;
 }
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .modules-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timeline {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .timeline::before {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-left,
+  .hero-right,
+  section,
+  .stats-strip,
+  .cta-final {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hero-right {
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
+
+  .stats-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .stat-item {
+    border-right: none;
+    padding: 0;
+  }
+
+  .before-after-grid,
+  .roi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ba-divider {
+    padding: 24px 0;
+  }
+
+  .modules-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-row,
+  .hero-cta-row,
+  .founders-strip {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cta-final .cta-row {
+    align-items: center;
+  }
+
+  .founder-sep {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-tagline {
+    font-size: 36px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .stats-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+
+  .hero-cta-row,
+  .cta-row {
+    width: 100%;
+  }
+
+  .cta-row {
+    gap: 12px;
+  }
+
+  .pricing-tier {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
 </style>
 </head>
 <body>
@@ -862,7 +977,9 @@ a:has(.btn-secondary) .btn-secondary {
     </p>
 
     <div class="hero-cta-row">
-      <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-primary" style="text-decoration:none;display:inline-block;">Demander une démo</a>
+      <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        Demander une démo
+      </a>
       <span class="hero-note">30 min · Sans engagement</span>
     </div>
   </div>
@@ -1303,7 +1420,6 @@ a:has(.btn-secondary) .btn-secondary {
       </div>
     </div>
 
-
     <!-- MODULE 07 — Vie Sociale & Animations -->
     <div class="module-card reveal" style="transition-delay:.0s">
       <div class="module-header" style="background:linear-gradient(135deg,#8B6914,#B8860B)">
@@ -1556,9 +1672,16 @@ a:has(.btn-secondary) .btn-secondary {
   <div class="section-eyebrow">Devenez pionnier</div>
   <h2 class="section-title">Vous reconnaissez<br>votre quotidien ici ?</h2>
   <p class="section-sub">On cherche 15 à 20 structures avec lesquelles construire NexiCare. Pas 50 clients — les bons partenaires.</p>
+
   <div class="cta-row">
-     <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-primary" style="text-decoration:none;display:inline-block;">Discutons 30 minutes</a>
-    <a href="https://docs.google.com/document/d/1mkjsjX6vQ9ETNagPN-Cbi4tidBQEvEo9/export?format=docx" target="_blank" class="btn-secondary" style="text-decoration:none;display:inline-block;">Télécharger le teaser</a>
+    <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">
+      Discutons 30 minutes
+    </a>
+
+    <a href="https://docs.google.com/document/d/1mkjsjX6vQ9ETNagPN-Cbi4tidBQEvEo9/export?format=docx" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+  Télécharger le teaser
+</a>
+    </a>
   </div>
 
   <div class="founders-strip">
@@ -1592,7 +1715,7 @@ a:has(.btn-secondary) .btn-secondary {
 <script>
 // Scroll reveal
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       setTimeout(() => {
         entry.target.classList.add('visible');
@@ -1614,6 +1737,7 @@ const chartObs = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.5 });
+
 document.querySelectorAll('.chart-row').forEach(el => chartObs.observe(el));
 
 // Stats counter animation
@@ -1626,6 +1750,7 @@ const statObs = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.5 });
+
 counters.forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
