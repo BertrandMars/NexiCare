@@ -46,6 +46,7 @@ body {
   position:absolute; inset:0;
   background: radial-gradient(ellipse at 70% 50%, rgba(14,124,123,.25) 0%, transparent 60%),
               radial-gradient(ellipse at 10% 80%, rgba(224,123,57,.12) 0%, transparent 50%);
+  pointer-events: none;
 }
 .hero-left {
   padding: 80px 60px;
@@ -120,6 +121,8 @@ body {
   cursor: pointer;
   font-family: 'DM Sans', sans-serif;
   transition: transform .2s, box-shadow .2s, border-color .2s, color .2s, background .2s;
+  position: relative;
+  z-index: 3;
 }
 
 .btn-primary {
@@ -147,8 +150,10 @@ body {
   font-weight: 500;
 }
 .btn-secondary:hover {
+  transform: translateY(-2px);
   border-color: rgba(255,255,255,.5);
   color: #fff;
+  box-shadow: 0 12px 32px rgba(255,255,255,.08);
 }
 
 /* ── MOCKUP POSTE DE COMMANDE ─────────────────────────── */
@@ -749,6 +754,12 @@ section { padding: 100px 80px; }
   content:'';
   position:absolute; inset:0;
   background: radial-gradient(ellipse at 50% 50%, rgba(224,123,57,.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.cta-final > * {
+  position: relative;
+  z-index: 2;
 }
 .cta-final .section-eyebrow { color: var(--orange); }
 .cta-final .section-title { color: #fff; max-width: 600px; margin: 0 auto 20px; }
@@ -957,7 +968,6 @@ section { padding: 100px 80px; }
 </head>
 <body>
 
-<!-- ══ HERO ════════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-left">
     <div class="logo-badge">
@@ -985,7 +995,6 @@ section { padding: 100px 80px; }
   </div>
 
   <div class="hero-right">
-    <!-- MOCKUP POSTE DE COMMANDE -->
     <div class="mockup-shell">
       <div class="mockup-bar">
         <div class="mockup-dot" style="background:#FF5F57"></div>
@@ -1063,7 +1072,6 @@ section { padding: 100px 80px; }
   </div>
 </section>
 
-<!-- ══ STATS STRIP ══════════════════════════════════════════════ -->
 <div class="stats-strip">
   <div class="stat-item">
     <div class="stat-num">40<span>K+</span></div>
@@ -1083,102 +1091,61 @@ section { padding: 100px 80px; }
   </div>
 </div>
 
-<!-- ══ AVANT / APRÈS ════════════════════════════════════════════ -->
 <section class="before-after">
   <div class="section-eyebrow">Le quotidien avant et après</div>
   <h2 class="section-title">Ce qui change<br>concrètement pour vos équipes</h2>
   <p class="section-sub">Pas de promesse abstraite. Voici ce que vivent vos coordinatrices, directeurs et responsables qualité — avant NexiCare, et avec NexiCare.</p>
 
   <div class="before-after-grid reveal">
-    <!-- AVANT -->
     <div class="ba-col">
       <div class="ba-header bad">
         <span class="ba-icon">😓</span>
         <span class="ba-title">Avant NexiCare</span>
       </div>
       <div class="ba-items">
-        <div class="ba-item bad">
-          <span class="ba-item-icon">📧</span>
-          "Les demandes arrivent par mail, téléphone, ViaTrajectoire… on perd des dossiers. On ne sait jamais vraiment où on en est."
-        </div>
-        <div class="ba-item bad">
-          <span class="ba-item-icon">📊</span>
-          "Avant chaque réunion de direction, je passe deux heures sur Excel à consolider des chiffres qui ont déjà un jour de retard."
-        </div>
-        <div class="ba-item bad">
-          <span class="ba-item-icon">📞</span>
-          "Les familles rappellent pour les mêmes informations. On cherche dans les mails, on rappelle… c'est chronophage pour un résultat médiocre."
-        </div>
-        <div class="ba-item bad">
-          <span class="ba-item-icon">🏥</span>
-          "On a des contacts dans tous les hôpitaux du territoire, mais on ne sait pas vraiment qui nous envoie des dossiers. C'est dans les têtes."
-        </div>
-        <div class="ba-item bad">
-          <span class="ba-item-icon">📋</span>
-          "Quand la visite HAS est annoncée, on passe des nuits à reconstituer des preuves qui auraient dû être tracées depuis des mois."
-        </div>
+        <div class="ba-item bad"><span class="ba-item-icon">📧</span>"Les demandes arrivent par mail, téléphone, ViaTrajectoire… on perd des dossiers. On ne sait jamais vraiment où on en est."</div>
+        <div class="ba-item bad"><span class="ba-item-icon">📊</span>"Avant chaque réunion de direction, je passe deux heures sur Excel à consolider des chiffres qui ont déjà un jour de retard."</div>
+        <div class="ba-item bad"><span class="ba-item-icon">📞</span>"Les familles rappellent pour les mêmes informations. On cherche dans les mails, on rappelle… c'est chronophage pour un résultat médiocre."</div>
+        <div class="ba-item bad"><span class="ba-item-icon">🏥</span>"On a des contacts dans tous les hôpitaux du territoire, mais on ne sait pas vraiment qui nous envoie des dossiers. C'est dans les têtes."</div>
+        <div class="ba-item bad"><span class="ba-item-icon">📋</span>"Quand la visite HAS est annoncée, on passe des nuits à reconstituer des preuves qui auraient dû être tracées depuis des mois."</div>
       </div>
       <div class="verbatim-block">
-        <div class="verbatim bad">
-          "Je pilote dans le rétroviseur. Je sais que les données sont là quelque part — mais les retrouver me prend plus de temps que les analyser."
-        </div>
+        <div class="verbatim bad">"Je pilote dans le rétroviseur. Je sais que les données sont là quelque part — mais les retrouver me prend plus de temps que les analyser."</div>
         <div class="verbatim-author">— Directrice SAD, 180 bénéficiaires</div>
       </div>
     </div>
 
-    <!-- DIVIDER -->
     <div class="ba-divider">
       <div class="ba-arrow">→</div>
       <div class="ba-divider-text">NexiCare<br>change<br>tout</div>
     </div>
 
-    <!-- APRÈS -->
     <div class="ba-col">
       <div class="ba-header good">
         <span class="ba-icon">🚀</span>
         <span class="ba-title">Avec NexiCare</span>
       </div>
       <div class="ba-items">
-        <div class="ba-item good">
-          <span class="ba-item-icon">⚡</span>
-          Pipeline visuel de toutes les demandes en un endroit. Import automatique depuis ViaTrajectoire. Alerte si un dossier est inactif depuis X jours.
-        </div>
-        <div class="ba-item good">
-          <span class="ba-item-icon">📈</span>
-          Tableau de bord en temps réel dès l'ouverture. Indicateurs ANAP pré-calculés automatiquement. Export PDF propre en 1 clic.
-        </div>
-        <div class="ba-item good">
-          <span class="ba-item-icon">💬</span>
-          Historique famille centralisé et partagé entre collègues. Relances automatiques. Documents signés électroniquement en 24h.
-        </div>
-        <div class="ba-item good">
-          <span class="ba-item-icon">🗺️</span>
-          CRM territorial structuré : chaque partenaire a un statut visible. Bilan mensuel automatique envoyé à chaque prescripteur.
-        </div>
-        <div class="ba-item good">
-          <span class="ba-item-icon">✅</span>
-          18 critères HAS couverts nativement par l'usage quotidien. Registres exportables à tout moment. Évaluation préparée en quelques heures.
-        </div>
+        <div class="ba-item good"><span class="ba-item-icon">⚡</span>Pipeline visuel de toutes les demandes en un endroit. Import automatique depuis ViaTrajectoire. Alerte si un dossier est inactif depuis X jours.</div>
+        <div class="ba-item good"><span class="ba-item-icon">📈</span>Tableau de bord en temps réel dès l'ouverture. Indicateurs ANAP pré-calculés automatiquement. Export PDF propre en 1 clic.</div>
+        <div class="ba-item good"><span class="ba-item-icon">💬</span>Historique famille centralisé et partagé entre collègues. Relances automatiques. Documents signés électroniquement en 24h.</div>
+        <div class="ba-item good"><span class="ba-item-icon">🗺️</span>CRM territorial structuré : chaque partenaire a un statut visible. Bilan mensuel automatique envoyé à chaque prescripteur.</div>
+        <div class="ba-item good"><span class="ba-item-icon">✅</span>18 critères HAS couverts nativement par l'usage quotidien. Registres exportables à tout moment. Évaluation préparée en quelques heures.</div>
       </div>
       <div class="verbatim-block">
-        <div class="verbatim good">
-          "J'ouvre NexiCare le matin, je vois en 10 secondes ce qui est urgent, ce qui est en retard, ce qu'on a réussi hier. Je pilote enfin."
-        </div>
+        <div class="verbatim good">"J'ouvre NexiCare le matin, je vois en 10 secondes ce qui est urgent, ce qui est en retard, ce qu'on a réussi hier. Je pilote enfin."</div>
         <div class="verbatim-author">— Directrice SAD, 180 bénéficiaires (après 3 mois)</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ MODULES ══════════════════════════════════════════════════ -->
 <section class="modules">
   <div class="section-eyebrow">L'architecture fonctionnelle</div>
   <h2 class="section-title">6 modules. Un seul outil.<br>Tout connecté.</h2>
   <p class="section-sub">Chaque module génère automatiquement les actions du suivant. Saisir une fois, voir partout.</p>
 
   <div class="modules-grid">
-
-    <!-- MODULE 01 — Poste de commande -->
     <div class="module-card reveal" style="transition-delay:.0s">
       <div class="module-header" style="background:linear-gradient(135deg,#1A3C6E,#2E5FA3)">
         <div class="module-num">00</div>
@@ -1218,7 +1185,6 @@ section { padding: 100px 80px; }
       </div>
     </div>
 
-    <!-- MODULE 02 — Parcours & Admissions -->
     <div class="module-card reveal" style="transition-delay:.1s">
       <div class="module-header" style="background:linear-gradient(135deg,#2E5FA3,#1A7DC4)">
         <div class="module-num">01</div>
@@ -1260,7 +1226,6 @@ section { padding: 100px 80px; }
       </div>
     </div>
 
-    <!-- MODULE 03 — Partenaires & Territoire -->
     <div class="module-card reveal" style="transition-delay:.2s">
       <div class="module-header" style="background:linear-gradient(135deg,#0E7C7B,#0A9E8E)">
         <div class="module-num">02</div>
@@ -1307,7 +1272,6 @@ section { padding: 100px 80px; }
       </div>
     </div>
 
-    <!-- MODULE 04 — Familles & Aidants -->
     <div class="module-card reveal" style="transition-delay:.1s">
       <div class="module-header" style="background:linear-gradient(135deg,#5B2C8D,#7C3AED)">
         <div class="module-num">03</div>
@@ -1340,7 +1304,6 @@ section { padding: 100px 80px; }
       </div>
     </div>
 
-    <!-- MODULE 05 — Pilotage -->
     <div class="module-card reveal" style="transition-delay:.2s">
       <div class="module-header" style="background:linear-gradient(135deg,#1A3C6E,#0E7C7B)">
         <div class="module-num">04</div>
@@ -1384,7 +1347,6 @@ section { padding: 100px 80px; }
       </div>
     </div>
 
-    <!-- MODULE 06 — Qualité HAS -->
     <div class="module-card reveal" style="transition-delay:.3s">
       <div class="module-header" style="background:linear-gradient(135deg,#A0264A,#C0392B)">
         <div class="module-num">05</div>
@@ -1420,7 +1382,6 @@ section { padding: 100px 80px; }
       </div>
     </div>
 
-    <!-- MODULE 07 — Vie Sociale & Animations -->
     <div class="module-card reveal" style="transition-delay:.0s">
       <div class="module-header" style="background:linear-gradient(135deg,#8B6914,#B8860B)">
         <div class="module-num">06</div>
@@ -1466,7 +1427,6 @@ section { padding: 100px 80px; }
       </div>
     </div>
 
-    <!-- MODULE 08 — Portail Famille -->
     <div class="module-card reveal" style="transition-delay:.1s">
       <div class="module-header" style="background:linear-gradient(135deg,#2E7D32,#388E3C)">
         <div class="module-num">07</div>
@@ -1515,11 +1475,9 @@ section { padding: 100px 80px; }
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ══ JOURNÉE TYPE ══════════════════════════════════════════════ -->
 <section class="journee">
   <div class="section-eyebrow">Une journée avec NexiCare</div>
   <h2 class="section-title">Du matin à la fin de journée,<br>tout est déjà fait ou planifié.</h2>
@@ -1579,7 +1537,6 @@ section { padding: 100px 80px; }
   </div>
 </section>
 
-<!-- ══ PRICING ══════════════════════════════════════════════════ -->
 <section class="roi">
   <div class="section-eyebrow">Modèle économique</div>
   <h2 class="section-title">Un abonnement simple.<br>Tous les modules. Tous les utilisateurs.</h2>
@@ -1644,7 +1601,6 @@ section { padding: 100px 80px; }
   </div>
 </section>
 
-<!-- ══ COEXISTENCE ══════════════════════════════════════════════ -->
 <section class="coexist reveal">
   <div class="section-eyebrow">Intégration & Coexistence</div>
   <h2 class="section-title">On ne débarque pas<br>pour tout remplacer.</h2>
@@ -1667,7 +1623,6 @@ section { padding: 100px 80px; }
   </p>
 </section>
 
-<!-- ══ CTA FINAL ════════════════════════════════════════════════ -->
 <section class="cta-final">
   <div class="section-eyebrow">Devenez pionnier</div>
   <h2 class="section-title">Vous reconnaissez<br>votre quotidien ici ?</h2>
@@ -1678,9 +1633,8 @@ section { padding: 100px 80px; }
       Discutons 30 minutes
     </a>
 
-    <a href="https://docs.google.com/document/d/1mkjsjX6vQ9ETNagPN-Cbi4tidBQEvEo9/export?format=docx" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-  Télécharger le teaser
-</a>
+    <a href="https://docs.google.com/document/d/1mkjsjX6vQ9ETNagPN-Cbi4tidBQEvEo9/edit?usp=drive_link&ouid=114717049404400944409&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+      Télécharger le teaser
     </a>
   </div>
 
@@ -1713,7 +1667,6 @@ section { padding: 100px 80px; }
 </div>
 
 <script>
-// Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -1727,7 +1680,6 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Animate bars on scroll
 const chartObs = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -1740,7 +1692,6 @@ const chartObs = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.chart-row').forEach(el => chartObs.observe(el));
 
-// Stats counter animation
 const counters = document.querySelectorAll('.stat-num');
 const statObs = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
