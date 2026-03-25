@@ -203,20 +203,18 @@ section { padding: 100px 80px; }
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(10,20,40,.85);
-  backdrop-filter: blur(6px);
+  background: rgba(10,20,40,.88);
   z-index: 1000;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 24px;
   opacity: 0;
-  pointer-events: none;
-  transition: opacity .3s ease;
+  transition: opacity .25s ease;
 }
 .modal-overlay.open {
+  display: flex;
   opacity: 1;
-  pointer-events: all;
 }
 .modal-box {
   background: #fff;
@@ -631,6 +629,31 @@ section { padding: 100px 80px; }
 .mmf-table th { font-size: 9px; color: rgba(255,255,255,.35); text-align: left; padding: 4px 8px; border-bottom: 1px solid rgba(255,255,255,.06); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
 .mmf-table td { font-size: 10px; color: rgba(255,255,255,.75); padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,.04); }
 .mmf-table tr:last-child td { border-bottom: none; }
+
+
+/* ── PERFORMANCE SCROLL ─────────────────────────────────────────── */
+.hero::before,
+.cta-final::before {
+  will-change: auto;
+  transform: translateZ(0);
+}
+.module-card {
+  will-change: transform;
+}
+.stats-strip,
+.before-after,
+.modules,
+.journee,
+.roi,
+.coexist,
+.cta-final {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
+}
+/* Désactiver les animations coûteuses sur scroll rapide */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .stat-num { transition: none !important; animation: none !important; }
+}
 
 </style>
 </head>
@@ -1132,7 +1155,7 @@ section { padding: 100px 80px; }
       </div>
       <div class="modal-cta">
         <div class="modal-cta-text">Vous voulez voir le poste de commande en action ?</div>
-        <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
+        <a href="https://calendly.com/nexicare/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
       </div>
     </div>
   </div>
@@ -1221,7 +1244,7 @@ section { padding: 100px 80px; }
       </div>
       <div class="modal-cta">
         <div class="modal-cta-text">Vous voulez voir le pipeline d'admissions en action ?</div>
-        <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
+        <a href="https://calendly.com/nexicare/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
       </div>
     </div>
   </div>
@@ -1306,7 +1329,7 @@ section { padding: 100px 80px; }
       </div>
       <div class="modal-cta">
         <div class="modal-cta-text">Vous voulez voir la roadmap partenariale en action ?</div>
-        <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
+        <a href="https://calendly.com/nexicare/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
       </div>
     </div>
   </div>
@@ -1388,7 +1411,7 @@ section { padding: 100px 80px; }
       </div>
       <div class="modal-cta">
         <div class="modal-cta-text">Voir comment NexiCare transforme la relation famille ?</div>
-        <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
+        <a href="https://calendly.com/nexicare/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
       </div>
     </div>
   </div>
@@ -1469,7 +1492,7 @@ section { padding: 100px 80px; }
       </div>
       <div class="modal-cta">
         <div class="modal-cta-text">Voir le tableau de bord NexiCare en action ?</div>
-        <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
+        <a href="https://calendly.com/nexicare/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
       </div>
     </div>
   </div>
@@ -1554,7 +1577,7 @@ section { padding: 100px 80px; }
       </div>
       <div class="modal-cta">
         <div class="modal-cta-text">Voir comment NexiCare couvre vos 18 critères HAS ?</div>
-        <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
+        <a href="https://calendly.com/nexicare/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
       </div>
     </div>
   </div>
@@ -1635,7 +1658,7 @@ section { padding: 100px 80px; }
       </div>
       <div class="modal-cta">
         <div class="modal-cta-text">Voir comment structurer la vie sociale avec NexiCare ?</div>
-        <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
+        <a href="https://calendly.com/nexicare/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
       </div>
     </div>
   </div>
@@ -1722,7 +1745,7 @@ section { padding: 100px 80px; }
       </div>
       <div class="modal-cta">
         <div class="modal-cta-text">Voir le portail famille NexiCare en action ?</div>
-        <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
+        <a href="https://calendly.com/nexicare/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
       </div>
     </div>
   </div>
@@ -1730,52 +1753,56 @@ section { padding: 100px 80px; }
 
 <!-- ══ SCRIPTS ══════════════════════════════════════════ -->
 <script>
-// Modales
+// ── Modales ──────────────────────────────────────────────────────
 function openModal(id) {
-  const modal = document.getElementById(id);
-  modal.classList.add('open');
+  const m = document.getElementById(id);
+  m.style.display = 'flex';
+  requestAnimationFrame(() => m.classList.add('open'));
   document.body.style.overflow = 'hidden';
 }
 function closeModal(id) {
-  const modal = document.getElementById(id);
-  modal.classList.remove('open');
+  const m = document.getElementById(id);
+  m.classList.remove('open');
+  setTimeout(() => { if (!m.classList.contains('open')) m.style.display = 'none'; }, 260);
   document.body.style.overflow = '';
 }
-function closeModalOutside(event, id) {
-  if (event.target === document.getElementById(id)) closeModal(id);
+function closeModalOutside(e, id) {
+  if (e.target === document.getElementById(id)) closeModal(id);
 }
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.modal-overlay.open').forEach(m => {
-      m.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  }
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape')
+    document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
 });
 
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
+// ── Scroll reveal — throttlé sur requestAnimationFrame ───────────
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0);
-      observer.unobserve(entry.target);
+      const delay = parseInt(entry.target.dataset.delay) || 0;
+      setTimeout(() => entry.target.classList.add('visible'), delay);
+      revealObs.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-// Stats counter
-const counters = document.querySelectorAll('.stat-num');
+// ── Stats fade-in ─────────────────────────────────────────────────
 const statObs = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; }
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      statObs.unobserve(entry.target);
+    }
   });
-}, { threshold: 0.5 });
-counters.forEach(el => {
-  el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity .6s ease, transform .6s ease';
+}, { threshold: 0.4 });
+document.querySelectorAll('.stat-num').forEach(el => {
+  el.style.cssText += 'opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;';
   statObs.observe(el);
 });
+
+// ── Init : toutes les modales en display:none ─────────────────────
+document.querySelectorAll('.modal-overlay').forEach(m => m.style.display = 'none');
 </script>
 </body>
 </html>
