@@ -497,6 +497,141 @@ section { padding: 100px 80px; }
 @media (max-width: 1200px) { .modules-grid { grid-template-columns: repeat(2, 1fr); } .timeline { grid-template-columns: repeat(2, 1fr); gap: 24px; } .timeline::before { display: none; } }
 @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .hero-left, .hero-right, section, .stats-strip, .cta-final { padding-left: 24px; padding-right: 24px; } .hero-right { padding-top: 0; padding-bottom: 40px; } .stats-strip { grid-template-columns: repeat(2, 1fr); gap: 24px; } .stat-item { border-right: none; padding: 0; } .before-after-grid, .roi-grid { grid-template-columns: 1fr; } .ba-divider { padding: 24px 0; } .modules-grid { grid-template-columns: 1fr; } .timeline { grid-template-columns: 1fr; } .cta-row, .hero-cta-row, .founders-strip { flex-direction: column; align-items: flex-start; } .cta-final .cta-row { align-items: center; } .founder-sep { display: none; } .modal-grid-2 { grid-template-columns: 1fr; } .modal-kpis { flex-wrap: wrap; } }
 @media (max-width: 600px) { .hero-tagline { font-size: 36px; } .section-title { font-size: 32px; } .stats-strip { grid-template-columns: 1fr; } .btn-primary, .btn-secondary { width: 100%; } .hero-cta-row, .cta-row { width: 100%; } .cta-row { gap: 12px; } .pricing-tier { flex-direction: column; align-items: flex-start; gap: 8px; } .modal-box { border-radius: 16px; } .modal-body, .modal-header { padding: 20px; } }
+
+/* ── MOCKUPS MODAUX ─────────────────────────────────────────────── */
+.modal-mockup-full {
+  background: #0A1628;
+  border-radius: 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  font-size: 11px;
+}
+.mmf-topbar {
+  background: #060E1C;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  overflow-x: auto;
+}
+.mmf-tabs {
+  display: flex;
+  gap: 0;
+  flex: 1;
+}
+.mmf-tab {
+  padding: 6px 14px;
+  font-size: 10px;
+  color: rgba(255,255,255,.35);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.mmf-tab.on {
+  color: #4ECDC4;
+  border-bottom-color: #4ECDC4;
+}
+.mmf-body {
+  padding: 14px 16px;
+  min-height: 200px;
+}
+/* Layout helpers inside modal mockups */
+.mmf-row { display: flex; gap: 10px; margin-bottom: 10px; }
+.mmf-col { flex: 1; }
+.mmf-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.mmf-card-title { font-size: 9px; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
+.mmf-big { font-size: 22px; font-weight: 800; color: #fff; font-family: 'Playfair Display', serif; line-height: 1; }
+.mmf-sub  { font-size: 9px; color: rgba(255,255,255,.45); margin-top: 3px; }
+.mmf-green { color: #4ECDC4; }
+.mmf-orange { color: #F59E0B; }
+.mmf-red  { color: #FC8181; }
+.mmf-purple { color: #A78BFA; }
+.mmf-gold { color: #FBBF24; }
+/* Alert rows */
+.mmf-alert {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.04);
+  border-left: 2px solid;
+  border-radius: 0 5px 5px 0;
+  padding: 6px 10px;
+  margin-bottom: 5px;
+  font-size: 10px;
+  color: rgba(255,255,255,.8);
+}
+.mmf-alert.r { border-color: #FC8181; }
+.mmf-alert.y { border-color: #F59E0B; }
+.mmf-alert.g { border-color: #4ECDC4; }
+.mmf-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+.mmf-alert.r .mmf-dot { background: #FC8181; }
+.mmf-alert.y .mmf-dot { background: #F59E0B; }
+.mmf-alert.g .mmf-dot { background: #4ECDC4; }
+.mmf-badge {
+  font-size: 9px; padding: 2px 7px; border-radius: 100px; font-weight: 600; white-space: nowrap;
+}
+.mmf-badge-green  { background: rgba(78,205,196,.2); color: #4ECDC4; }
+.mmf-badge-orange { background: rgba(245,158,11,.2); color: #F59E0B; }
+.mmf-badge-blue   { background: rgba(99,102,241,.2); color: #A78BFA; }
+.mmf-badge-red    { background: rgba(252,129,129,.2); color: #FC8181; }
+/* Bar chart */
+.mmf-bars { display: flex; align-items: flex-end; gap: 3px; height: 44px; }
+.mmf-bar { flex:1; border-radius: 2px 2px 0 0; background: rgba(14,124,123,.4); }
+.mmf-bar.hi { background: #4ECDC4; }
+/* Progress bar */
+.mmf-progress-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.mmf-progress-label { font-size: 9px; color: rgba(255,255,255,.5); width: 90px; flex-shrink: 0; }
+.mmf-progress-track { flex:1; height: 5px; background: rgba(255,255,255,.1); border-radius: 3px; overflow: hidden; }
+.mmf-progress-fill { height: 100%; border-radius: 3px; }
+.mmf-progress-val { font-size: 9px; color: rgba(255,255,255,.6); width: 28px; text-align: right; flex-shrink: 0; }
+/* Kanban */
+.mmf-kanban { display: flex; gap: 8px; }
+.mmf-kanban-col { flex:1; }
+.mmf-kanban-head { font-size: 9px; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; font-weight: 600; }
+.mmf-kanban-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 5px; padding: 7px 9px; margin-bottom: 5px; }
+.mmf-kanban-name { font-size: 10px; color: #fff; font-weight: 600; }
+.mmf-kanban-sub  { font-size: 9px; color: rgba(255,255,255,.45); margin-top: 2px; }
+/* Partner rows */
+.mmf-partner { display: flex; align-items: center; gap: 7px; background: rgba(255,255,255,.05); border-radius: 6px; padding: 7px 10px; margin-bottom: 5px; }
+.mmf-partner-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.mmf-partner-name { flex:1; font-size: 10px; color: rgba(255,255,255,.85); font-weight: 500; }
+.mmf-partner-flux { font-size: 9px; color: rgba(255,255,255,.4); }
+/* Chat */
+.mmf-chat { display: flex; flex-direction: column; gap: 5px; }
+.mmf-bubble { padding: 6px 10px; border-radius: 10px; font-size: 10px; line-height: 1.4; max-width: 80%; color: #fff; }
+.mmf-bubble.in  { background: rgba(255,255,255,.1); align-self: flex-start; border-bottom-left-radius: 3px; }
+.mmf-bubble.out { background: var(--teal); align-self: flex-end; border-bottom-right-radius: 3px; }
+/* HAS grid */
+.mmf-has { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.mmf-has-item { border-radius: 6px; padding: 7px 5px; text-align: center; font-size: 9px; font-weight: 700; }
+.mmf-has-item.ok  { background: rgba(78,205,196,.15); color: #4ECDC4; border: 1px solid rgba(78,205,196,.25); }
+.mmf-has-item.warn { background: rgba(245,158,11,.15); color: #F59E0B; border: 1px solid rgba(245,158,11,.25); }
+.mmf-has-lbl { font-size: 8px; margin-top: 2px; font-weight: 400; opacity: .8; }
+/* Gauges */
+.mmf-gauges { display: flex; gap: 10px; justify-content: center; }
+.mmf-gauge { text-align: center; }
+.mmf-gauge-ring { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; border: 3px solid; }
+.mmf-gauge-lbl { font-size: 9px; color: rgba(255,255,255,.45); margin-top: 4px; line-height: 1.2; }
+/* Calendar */
+.mmf-cal { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+.mmf-cal-item { border-radius: 5px; padding: 6px 5px; font-size: 9px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.07); }
+.mmf-cal-time { color: rgba(255,255,255,.4); margin-bottom: 2px; }
+.mmf-cal-name { color: rgba(255,255,255,.85); font-weight: 600; line-height: 1.2; }
+.mmf-cal-item.active { background: rgba(14,124,123,.2); border-color: rgba(14,124,123,.4); }
+/* Satisfaction stars */
+.mmf-stars { color: #FBBF24; font-size: 11px; letter-spacing: 1px; }
+/* Section separator in mockup */
+.mmf-sep { height: 1px; background: rgba(255,255,255,.06); margin: 10px 0; }
+/* Table */
+.mmf-table { width: 100%; border-collapse: collapse; }
+.mmf-table th { font-size: 9px; color: rgba(255,255,255,.35); text-align: left; padding: 4px 8px; border-bottom: 1px solid rgba(255,255,255,.06); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+.mmf-table td { font-size: 10px; color: rgba(255,255,255,.75); padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,.04); }
+.mmf-table tr:last-child td { border-bottom: none; }
+
 </style>
 </head>
 <body>
@@ -945,6 +1080,40 @@ section { padding: 100px 80px; }
       <button class="modal-close" onclick="closeModal('modal-00')">✕</button>
     </div>
     <div class="modal-body">
+
+    <div class="modal-mockup-full">
+      <div class="mmf-topbar">
+        <div class="mmf-tabs">
+          <div class="mmf-tab on">⚡ Poste de commande</div>
+          <div class="mmf-tab">📋 Parcours</div>
+          <div class="mmf-tab">🤝 Partenaires</div>
+          <div class="mmf-tab">👨‍👩‍👧 Familles</div>
+          <div class="mmf-tab">📊 Pilotage</div>
+          <div class="mmf-tab">✅ Qualité</div>
+        </div>
+      </div>
+      <div class="mmf-body">
+        <div class="mmf-row">
+          <div class="mmf-card mmf-col"><div class="mmf-card-title">Dossiers actifs</div><div class="mmf-big mmf-green">18</div><div class="mmf-sub">↑ +3 cette semaine</div></div>
+          <div class="mmf-card mmf-col"><div class="mmf-card-title">Admissions</div><div class="mmf-big mmf-orange">3</div><div class="mmf-sub">En cours · 2 urgents</div></div>
+          <div class="mmf-card mmf-col"><div class="mmf-card-title">Alertes</div><div class="mmf-big mmf-red">2</div><div class="mmf-sub">Dont 1 critique</div></div>
+          <div class="mmf-card mmf-col" style="flex:2">
+            <div class="mmf-card-title">Admissions ce mois</div>
+            <div class="mmf-bars">
+              <div class="mmf-bar" style="height:35%"></div><div class="mmf-bar" style="height:50%"></div>
+              <div class="mmf-bar" style="height:65%"></div><div class="mmf-bar" style="height:45%"></div>
+              <div class="mmf-bar hi" style="height:85%"></div><div class="mmf-bar hi" style="height:95%"></div>
+              <div class="mmf-bar hi" style="height:75%"></div>
+            </div>
+          </div>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;font-weight:600;">Actions prioritaires du jour</div>
+        <div class="mmf-alert r"><div class="mmf-dot"></div>Mme Dupont — Dossier inactif depuis 5 jours · Prescription expirée<span class="mmf-badge mmf-badge-red" style="margin-left:auto">URGENT</span></div>
+        <div class="mmf-alert y"><div class="mmf-dot"></div>CH Saint-Antoine — Relance prescripteur J+15 · Dernier contact il y a 18 jours<span class="mmf-badge mmf-badge-orange" style="margin-left:auto">Relancer</span></div>
+        <div class="mmf-alert g"><div class="mmf-dot"></div>M. Bernard — Contrat signé électroniquement ✓ · Démarrage confirmé lundi<span class="mmf-badge mmf-badge-green" style="margin-left:auto">Clôturé</span></div>
+      </div>
+    </div>
+
       <div class="modal-verbatim">
         "Avant, j'ouvrais 4 outils différents le matin pour savoir où j'en étais. Maintenant j'ouvre NexiCare et en 10 secondes je sais ce qui est urgent, ce qui est en retard, et ce que mon équipe a réussi hier."
         <div class="modal-verbatim-author">— Directrice SAD, 180 bénéficiaires</div>
@@ -989,6 +1158,50 @@ section { padding: 100px 80px; }
       <button class="modal-close" onclick="closeModal('modal-01')">✕</button>
     </div>
     <div class="modal-body">
+
+    <div class="modal-mockup-full">
+      <div class="mmf-topbar">
+        <div class="mmf-tabs">
+          <div class="mmf-tab">⚡ Poste de commande</div>
+          <div class="mmf-tab on">📋 Parcours & Admissions</div>
+          <div class="mmf-tab">🤝 Partenaires</div>
+          <div class="mmf-tab">👨‍👩‍👧 Familles</div>
+          <div class="mmf-tab">📊 Pilotage</div>
+          <div class="mmf-tab">✅ Qualité</div>
+        </div>
+      </div>
+      <div class="mmf-body">
+        <div class="mmf-kanban">
+          <div class="mmf-kanban-col">
+            <div class="mmf-kanban-head">📥 Demandes (4)</div>
+            <div class="mmf-kanban-card"><div class="mmf-kanban-name">Mme Leclerc</div><div class="mmf-kanban-sub">GIR 3 · Urgence · ViaTrajectoire</div><span class="mmf-badge mmf-badge-red">Urgent</span></div>
+            <div class="mmf-kanban-card"><div class="mmf-kanban-name">M. Renaud</div><div class="mmf-kanban-sub">GIR 4 · DOM · Mail entrant</div></div>
+            <div class="mmf-kanban-card" style="opacity:.6"><div class="mmf-kanban-name">Mme Tessier</div><div class="mmf-kanban-sub">GIR 2 · HAD · Formulaire web</div></div>
+          </div>
+          <div class="mmf-kanban-col">
+            <div class="mmf-kanban-head">🔍 Qualification (2)</div>
+            <div class="mmf-kanban-card"><div class="mmf-kanban-name">Mme Blanc</div><div class="mmf-kanban-sub">Matching OK · 2 places dispo</div><span class="mmf-badge mmf-badge-orange">À valider</span></div>
+            <div class="mmf-kanban-card"><div class="mmf-kanban-name">M. Petit</div><div class="mmf-kanban-sub">Profil incomplet · 1 doc manquant</div></div>
+          </div>
+          <div class="mmf-kanban-col">
+            <div class="mmf-kanban-head">📝 Contrat (1)</div>
+            <div class="mmf-kanban-card"><div class="mmf-kanban-name">Mme Fontaine</div><div class="mmf-kanban-sub">Contrat envoyé · Signature en attente</div><span class="mmf-badge mmf-badge-orange">J+2</span></div>
+          </div>
+          <div class="mmf-kanban-col">
+            <div class="mmf-kanban-head">✅ Admis (3)</div>
+            <div class="mmf-kanban-card"><div class="mmf-kanban-name">M. Bernard</div><div class="mmf-kanban-sub">Signé ✓ · Démarrage lundi</div><span class="mmf-badge mmf-badge-green">Actif</span></div>
+            <div class="mmf-kanban-card"><div class="mmf-kanban-name">Mme Simon</div><div class="mmf-kanban-sub">En cours depuis J+7</div></div>
+          </div>
+        </div>
+        <div class="mmf-sep"></div>
+        <div class="mmf-row" style="gap:16px">
+          <div style="font-size:10px;color:rgba(255,255,255,.5);">📊 Taux transformation : <span style="color:#4ECDC4;font-weight:700;">74%</span></div>
+          <div style="font-size:10px;color:rgba(255,255,255,.5);">⏱ Délai moyen : <span style="color:#F59E0B;font-weight:700;">8,4 jours</span></div>
+          <div style="font-size:10px;color:rgba(255,255,255,.5);">📋 Prévision 14j : <span style="color:#fff;font-weight:700;">+5 admissions</span></div>
+        </div>
+      </div>
+    </div>
+
       <div class="modal-verbatim">
         "Les demandes arrivent par mail, téléphone, ViaTrajectoire… elles atterrissent partout et nulle part. On perd des dossiers. On ne sait pas où on en est."
         <div class="modal-verbatim-author">— Responsable de secteur SAD, 180 bénéficiaires</div>
@@ -1034,6 +1247,40 @@ section { padding: 100px 80px; }
       <button class="modal-close" onclick="closeModal('modal-02')">✕</button>
     </div>
     <div class="modal-body">
+
+    <div class="modal-mockup-full">
+      <div class="mmf-topbar">
+        <div class="mmf-tabs">
+          <div class="mmf-tab">⚡ Poste de commande</div>
+          <div class="mmf-tab">📋 Parcours</div>
+          <div class="mmf-tab on">🤝 Partenaires & Territoire</div>
+          <div class="mmf-tab">👨‍👩‍👧 Familles</div>
+          <div class="mmf-tab">📊 Pilotage</div>
+          <div class="mmf-tab">✅ Qualité</div>
+        </div>
+      </div>
+      <div class="mmf-body">
+        <div class="mmf-row">
+          <div style="flex:1.5">
+            <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;font-weight:600;">Réseau territorial — 34 partenaires</div>
+            <div class="mmf-partner"><div class="mmf-partner-dot" style="background:#4ECDC4"></div><div class="mmf-partner-name">CH Saint-Antoine</div><span class="mmf-badge mmf-badge-green">Actif</span><div class="mmf-partner-flux">12 doss/mois</div></div>
+            <div class="mmf-partner"><div class="mmf-partner-dot" style="background:#F59E0B"></div><div class="mmf-partner-name">CCAS Paris 15e</div><span class="mmf-badge mmf-badge-orange">Relance J+3</span><div class="mmf-partner-flux">4 doss/mois</div></div>
+            <div class="mmf-partner"><div class="mmf-partner-dot" style="background:#A78BFA"></div><div class="mmf-partner-name">HAD Île-de-France</div><span class="mmf-badge mmf-badge-blue">Étape 2/4</span><div class="mmf-partner-flux">—</div></div>
+            <div class="mmf-partner"><div class="mmf-partner-dot" style="background:#FC8181"></div><div class="mmf-partner-name">SSIAD Val-de-Marne</div><span class="mmf-badge mmf-badge-red">Inactif 45j</span><div class="mmf-partner-flux">0 doss</div></div>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;font-weight:600;">Origine des dossiers (mois)</div>
+            <div class="mmf-progress-row"><div class="mmf-progress-label">CH Saint-Antoine</div><div class="mmf-progress-track"><div class="mmf-progress-fill" style="width:68%;background:#4ECDC4"></div></div><div class="mmf-progress-val" style="color:#4ECDC4">68%</div></div>
+            <div class="mmf-progress-row"><div class="mmf-progress-label">CCAS Paris 15e</div><div class="mmf-progress-track"><div class="mmf-progress-fill" style="width:18%;background:#F59E0B"></div></div><div class="mmf-progress-val" style="color:#F59E0B">18%</div></div>
+            <div class="mmf-progress-row"><div class="mmf-progress-label">Familles directes</div><div class="mmf-progress-track"><div class="mmf-progress-fill" style="width:14%;background:#A78BFA"></div></div><div class="mmf-progress-val" style="color:#A78BFA">14%</div></div>
+            <div class="mmf-sep"></div>
+            <div style="font-size:9px;color:rgba(255,255,255,.4);margin-top:4px;">📧 Bilan mensuel auto envoyé · <span style="color:#4ECDC4">3 partenaires</span></div>
+            <div style="font-size:9px;color:rgba(255,255,255,.4);margin-top:3px;">🔔 Relances programmées · <span style="color:#F59E0B">2 cette semaine</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
       <div class="modal-verbatim">
         "On a des contacts dans tous les hôpitaux du territoire. Mais honnêtement, on ne sait pas vraiment qui nous envoie des dossiers, ni si on les a relancés récemment. C'est dans les têtes."
         <div class="modal-verbatim-author">— Directrice SAD, réseau de 35 partenaires</div>
@@ -1085,6 +1332,43 @@ section { padding: 100px 80px; }
       <button class="modal-close" onclick="closeModal('modal-03')">✕</button>
     </div>
     <div class="modal-body">
+
+    <div class="modal-mockup-full">
+      <div class="mmf-topbar">
+        <div class="mmf-tabs">
+          <div class="mmf-tab">⚡ Poste de commande</div>
+          <div class="mmf-tab">📋 Parcours</div>
+          <div class="mmf-tab">🤝 Partenaires</div>
+          <div class="mmf-tab on">👨‍👩‍👧 Familles & Aidants</div>
+          <div class="mmf-tab">📊 Pilotage</div>
+          <div class="mmf-tab">✅ Qualité</div>
+        </div>
+      </div>
+      <div class="mmf-body">
+        <div class="mmf-row">
+          <div style="flex:1.4">
+            <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;font-weight:600;">Famille Dupont — M. Jean Dupont (fils référent)</div>
+            <div class="mmf-chat">
+              <div class="mmf-bubble in">"Bonjour, est-ce que ma mère a bien été installée ?"</div>
+              <div class="mmf-bubble out">Oui, tout s'est très bien passé. Elle participe aux activités dès ce soir ✓</div>
+              <div class="mmf-bubble in">"Pouvez-vous nous envoyer l'avenant au contrat ?"</div>
+              <div style="font-size:9px;color:rgba(255,255,255,.4);text-align:right;margin-top:2px;">⚙️ Document envoyé auto · Signature en attente · Relance J+2 programmée</div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;font-weight:600;">Vue d'ensemble familles</div>
+            <div class="mmf-row" style="gap:6px;margin-bottom:8px">
+              <div class="mmf-card mmf-col" style="text-align:center"><div class="mmf-big mmf-green" style="font-size:18px">24</div><div class="mmf-sub">Contacts ce mois</div></div>
+              <div class="mmf-card mmf-col" style="text-align:center"><div class="mmf-big mmf-orange" style="font-size:18px">3</div><div class="mmf-sub">Docs en attente</div></div>
+            </div>
+            <div style="font-size:9px;color:rgba(255,255,255,.35);margin-bottom:4px;">Satisfaction globale</div>
+            <div style="font-size:11px;" class="mmf-stars">★★★★☆</div>
+            <div style="font-size:10px;color:#FBBF24;font-weight:700;margin-top:2px;">4,2 / 5 <span style="color:rgba(255,255,255,.4);font-weight:400">(18 réponses)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
       <div class="modal-verbatim">
         "Les familles appellent à toute heure pour savoir si on a reçu leur document, si le RDV est confirmé. On passe un temps fou à chercher dans nos mails. Et les coordinatrices ne savent pas toutes la même chose."
         <div class="modal-verbatim-author">— Coordinatrice EHPAD, 90 résidents</div>
@@ -1130,6 +1414,42 @@ section { padding: 100px 80px; }
       <button class="modal-close" onclick="closeModal('modal-04')">✕</button>
     </div>
     <div class="modal-body">
+
+    <div class="modal-mockup-full">
+      <div class="mmf-topbar">
+        <div class="mmf-tabs">
+          <div class="mmf-tab">⚡ Poste de commande</div>
+          <div class="mmf-tab">📋 Parcours</div>
+          <div class="mmf-tab">🤝 Partenaires</div>
+          <div class="mmf-tab">👨‍👩‍👧 Familles</div>
+          <div class="mmf-tab on">📊 Pilotage & Indicateurs</div>
+          <div class="mmf-tab">✅ Qualité</div>
+        </div>
+      </div>
+      <div class="mmf-body">
+        <div class="mmf-row">
+          <div style="flex:1">
+            <div class="mmf-gauges">
+              <div class="mmf-gauge"><div class="mmf-gauge-ring" style="border-color:#4ECDC4;color:#4ECDC4;background:rgba(78,205,196,.08)">87%</div><div class="mmf-gauge-lbl">Taux<br>occupation</div></div>
+              <div class="mmf-gauge"><div class="mmf-gauge-ring" style="border-color:#F59E0B;color:#F59E0B;background:rgba(245,158,11,.08)">8,4j</div><div class="mmf-gauge-lbl">Délai<br>admission</div></div>
+              <div class="mmf-gauge"><div class="mmf-gauge-ring" style="border-color:#A78BFA;color:#A78BFA;background:rgba(167,139,250,.08)">+12%</div><div class="mmf-gauge-lbl">Flux<br>partenaires</div></div>
+            </div>
+          </div>
+          <div style="flex:1.8">
+            <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;font-weight:600;">TDB Performance ANAP — Campagne 2026</div>
+            <table class="mmf-table">
+              <tr><th>Indicateur</th><th>Valeur</th><th>Statut</th></tr>
+              <tr><td>File active SAD</td><td style="color:#4ECDC4;font-weight:700;">142</td><td><span class="mmf-badge mmf-badge-green">✓ Calculé</span></td></tr>
+              <tr><td>Taux d'occupation</td><td style="color:#4ECDC4;font-weight:700;">87%</td><td><span class="mmf-badge mmf-badge-green">✓ Calculé</span></td></tr>
+              <tr><td>Délai prise en charge</td><td style="color:#F59E0B;font-weight:700;">8,4j</td><td><span class="mmf-badge mmf-badge-orange">À valider</span></td></tr>
+              <tr><td>Nb EI déclarés</td><td style="color:#4ECDC4;font-weight:700;">7</td><td><span class="mmf-badge mmf-badge-green">✓ Calculé</span></td></tr>
+            </table>
+            <div style="margin-top:6px;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.2);border-radius:5px;padding:5px 8px;font-size:9px;color:#4ECDC4;">📄 Export PDF ANAP prêt · Mis à jour il y a 2 heures</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
       <div class="modal-verbatim">
         "Avant chaque réunion de direction, je passe deux heures à consolider des chiffres dans Excel. Et quand je les présente, ils ont déjà un jour de retard. Je pilote dans le rétroviseur."
         <div class="modal-verbatim-author">— Directeur EHPAD multi-sites, 3 établissements</div>
@@ -1175,6 +1495,46 @@ section { padding: 100px 80px; }
       <button class="modal-close" onclick="closeModal('modal-05')">✕</button>
     </div>
     <div class="modal-body">
+
+    <div class="modal-mockup-full">
+      <div class="mmf-topbar">
+        <div class="mmf-tabs">
+          <div class="mmf-tab">⚡ Poste de commande</div>
+          <div class="mmf-tab">📋 Parcours</div>
+          <div class="mmf-tab">🤝 Partenaires</div>
+          <div class="mmf-tab">👨‍👩‍👧 Familles</div>
+          <div class="mmf-tab">📊 Pilotage</div>
+          <div class="mmf-tab on">✅ Qualité & HAS</div>
+        </div>
+      </div>
+      <div class="mmf-body">
+        <div class="mmf-row">
+          <div style="flex:1.2">
+            <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;font-weight:600;">18 critères impératifs HAS — couverture temps réel</div>
+            <div class="mmf-has">
+              <div class="mmf-has-item ok">3.12.1<div class="mmf-has-lbl">Plaintes ✓</div></div>
+              <div class="mmf-has-item ok">3.12.2<div class="mmf-has-lbl">Réclamations ✓</div></div>
+              <div class="mmf-has-item ok">3.13.1<div class="mmf-has-lbl">EI ✓</div></div>
+              <div class="mmf-has-item ok">3.13.2<div class="mmf-has-lbl">Analyse EI ✓</div></div>
+              <div class="mmf-has-item ok">3.11.1<div class="mmf-has-lbl">Maltraité ✓</div></div>
+              <div class="mmf-has-item ok">2.2.7<div class="mmf-has-lbl">RGPD ✓</div></div>
+              <div class="mmf-has-item ok">3.14.1<div class="mmf-has-lbl">Crise ✓</div></div>
+              <div class="mmf-has-item ok">3.14.2<div class="mmf-has-lbl">Continuité ✓</div></div>
+              <div class="mmf-has-item ok">+10 ✓<div class="mmf-has-lbl">Tous couverts</div></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;font-weight:600;">Registre EI — Ce trimestre</div>
+            <div class="mmf-alert g"><div class="mmf-dot"></div>EI #47 — Chute · Analysé · Plan d'action clôturé</div>
+            <div class="mmf-alert y"><div class="mmf-dot"></div>EI #48 — Médication · Analyse en cours J+3</div>
+            <div class="mmf-alert g"><div class="mmf-dot"></div>Registre plaintes · 2 traitées · 0 en retard</div>
+            <div class="mmf-sep"></div>
+            <div style="font-size:9px;color:rgba(255,255,255,.4);">📅 Prochaine évaluation HAS : <span style="color:#4ECDC4">Prête</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
       <div class="modal-verbatim">
         "Quand l'évaluatrice HAS a appelé pour fixer la date, j'ai eu un coup au cœur. J'avais trois semaines pour reconstituer trois ans de preuves. Je n'ai pas dormi de la semaine précédant la visite."
         <div class="modal-verbatim-author">— Responsable qualité EHPAD, 110 lits</div>
@@ -1220,6 +1580,42 @@ section { padding: 100px 80px; }
       <button class="modal-close" onclick="closeModal('modal-06')">✕</button>
     </div>
     <div class="modal-body">
+
+    <div class="modal-mockup-full">
+      <div class="mmf-topbar">
+        <div class="mmf-tabs">
+          <div class="mmf-tab">⚡ Poste de commande</div>
+          <div class="mmf-tab">📋 Parcours</div>
+          <div class="mmf-tab">🤝 Partenaires</div>
+          <div class="mmf-tab">👨‍👩‍👧 Familles</div>
+          <div class="mmf-tab">📊 Pilotage</div>
+          <div class="mmf-tab on">🎨 Vie Sociale</div>
+        </div>
+      </div>
+      <div class="mmf-body">
+        <div class="mmf-row">
+          <div style="flex:1.8">
+            <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;font-weight:600;">Planning — Semaine du 24 mars</div>
+            <div class="mmf-cal">
+              <div class="mmf-cal-item active"><div class="mmf-cal-time">Lun 09h</div><div class="mmf-cal-name">🎨 Atelier peinture</div></div>
+              <div class="mmf-cal-item"><div class="mmf-cal-time">Mar 14h</div><div class="mmf-cal-name">🎵 Musico-thérapie</div></div>
+              <div class="mmf-cal-item active"><div class="mmf-cal-time">Mer 10h</div><div class="mmf-cal-name">📚 Lecture partagée</div></div>
+              <div class="mmf-cal-item"><div class="mmf-cal-time">Jeu 15h</div><div class="mmf-cal-name">🌿 Jardinage</div></div>
+              <div class="mmf-cal-item active"><div class="mmf-cal-time">Ven 14h</div><div class="mmf-cal-name">🎭 Atelier mémoire</div></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;font-weight:600;">Participation ce mois</div>
+            <div class="mmf-progress-row"><div class="mmf-progress-label">Atelier peinture</div><div class="mmf-progress-track"><div class="mmf-progress-fill" style="width:82%;background:#4ECDC4"></div></div><div class="mmf-progress-val" style="color:#4ECDC4">82%</div></div>
+            <div class="mmf-progress-row"><div class="mmf-progress-label">Musicothérapie</div><div class="mmf-progress-track"><div class="mmf-progress-fill" style="width:74%;background:#FBBF24"></div></div><div class="mmf-progress-val" style="color:#FBBF24">74%</div></div>
+            <div class="mmf-progress-row"><div class="mmf-progress-label">Jardinage</div><div class="mmf-progress-track"><div class="mmf-progress-fill" style="width:58%;background:#A78BFA"></div></div><div class="mmf-progress-val" style="color:#A78BFA">58%</div></div>
+            <div class="mmf-sep"></div>
+            <div style="font-size:9px;color:rgba(255,255,255,.4);">📊 Indicateurs HAS vie sociale : <span style="color:#4ECDC4">Prêts</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
       <div class="modal-verbatim">
         "Je passe plus de temps à planifier et coordonner les activités qu'à les animer. Entre les tableaux Excel, les affiches à imprimer et les appels aux familles — c'est chronophage pour un résultat difficile à mesurer."
         <div class="modal-verbatim-author">— Animatrice EHPAD, 80 résidents</div>
@@ -1265,6 +1661,48 @@ section { padding: 100px 80px; }
       <button class="modal-close" onclick="closeModal('modal-07')">✕</button>
     </div>
     <div class="modal-body">
+
+    <div class="modal-mockup-full">
+      <div class="mmf-topbar">
+        <div class="mmf-tabs">
+          <div class="mmf-tab">⚡ Poste de commande</div>
+          <div class="mmf-tab">📋 Parcours</div>
+          <div class="mmf-tab">🤝 Partenaires</div>
+          <div class="mmf-tab">👨‍👩‍👧 Familles</div>
+          <div class="mmf-tab">📊 Pilotage</div>
+          <div class="mmf-tab on">🏠 Portail Famille</div>
+        </div>
+      </div>
+      <div class="mmf-body">
+        <div class="mmf-row">
+          <div style="flex:1">
+            <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;font-weight:600;">Vue côté équipe — Portail Famille actif</div>
+            <div class="mmf-row" style="gap:6px;margin-bottom:8px">
+              <div class="mmf-card mmf-col" style="text-align:center"><div class="mmf-big mmf-green" style="font-size:18px">42</div><div class="mmf-sub">Familles actives</div></div>
+              <div class="mmf-card mmf-col" style="text-align:center"><div class="mmf-big mmf-orange" style="font-size:18px">5</div><div class="mmf-sub">Msgs sans réponse</div></div>
+            </div>
+            <div class="mmf-alert y"><div class="mmf-dot"></div>Famille Dupont · Avenant en attente de signature depuis J+3</div>
+            <div class="mmf-alert g"><div class="mmf-dot"></div>Famille Martin · Document MDPH déposé ✓ · Traité</div>
+          </div>
+          <div style="flex:1.2">
+            <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;font-weight:600;">Vue famille — Espace Dupont</div>
+            <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px;">
+              <div class="mmf-chat">
+                <div class="mmf-bubble in">"Comment va ma mère cette semaine ?"</div>
+                <div class="mmf-bubble out">Elle va très bien, a participé à l'atelier peinture hier ✓</div>
+              </div>
+              <div class="mmf-sep"></div>
+              <div style="display:flex;gap:6px;justify-content:center;">
+                <div style="text-align:center;font-size:9px;color:rgba(255,255,255,.5);">📄 3 docs<br><span style="color:#4ECDC4">Signés</span></div>
+                <div style="text-align:center;font-size:9px;color:rgba(255,255,255,.5);">📅 2 évén.<br><span style="color:#F59E0B">Ce mois</span></div>
+                <div style="text-align:center;font-size:9px;color:rgba(255,255,255,.5);">⭐ Avis<br><span style="color:#FBBF24">4.8/5</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
       <div class="modal-verbatim">
         "Les familles veulent du lien, de la transparence, des réponses rapides. Et nous, on n'a pas le temps de rappeler tout le monde. Il faut un canal qui leur donne accès à ce dont ils ont besoin — sans multiplier nos sollicitations."
         <div class="modal-verbatim-author">— Directrice EHPAD, 95 résidents</div>
