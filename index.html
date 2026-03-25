@@ -20,980 +20,501 @@
   --red:     #C0392B;
   --green:   #2E7D32;
 }
-
 * { margin:0; padding:0; box-sizing:border-box; }
-
 html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--white);
-  color: var(--dark);
-  overflow-x: hidden;
-}
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; }
 
 /* ── HERO ─────────────────────────────────────────────── */
-.hero {
-  min-height: 100vh;
-  background: var(--navy-d);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content:'';
-  position:absolute; inset:0;
-  background: radial-gradient(ellipse at 70% 50%, rgba(14,124,123,.25) 0%, transparent 60%),
-              radial-gradient(ellipse at 10% 80%, rgba(224,123,57,.12) 0%, transparent 50%);
-  pointer-events: none;
-}
-.hero-left {
-  padding: 80px 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-}
-.logo-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: 100px;
-  padding: 8px 20px;
-  width: fit-content;
-  margin-bottom: 48px;
-  animation: fadeUp .8s ease both;
-}
+.hero { min-height: 100vh; background: var(--navy-d); display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+.hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 70% 50%, rgba(14,124,123,.25) 0%, transparent 60%), radial-gradient(ellipse at 10% 80%, rgba(224,123,57,.12) 0%, transparent 50%); pointer-events: none; }
+.hero-left { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 2; }
+.logo-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 100px; padding: 8px 20px; width: fit-content; margin-bottom: 48px; animation: fadeUp .8s ease both; }
 .logo-badge span { font-size:13px; color:rgba(255,255,255,.7); letter-spacing:.08em; text-transform:uppercase; font-weight:500; }
 .logo-dot { width:8px; height:8px; border-radius:50%; background:var(--teal); }
-
-.hero-tagline {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(38px, 4.5vw, 62px);
-  font-weight: 900;
-  line-height: 1.05;
-  color: #fff;
-  margin-bottom: 28px;
-  animation: fadeUp .8s .15s ease both;
-}
-.hero-tagline em {
-  font-style: italic;
-  color: var(--orange);
-}
-.hero-sub {
-  font-size: 17px;
-  line-height: 1.7;
-  color: rgba(255,255,255,.65);
-  max-width: 420px;
-  margin-bottom: 48px;
-  font-weight: 300;
-  animation: fadeUp .8s .3s ease both;
-}
-.hero-cta-row {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  animation: fadeUp .8s .45s ease both;
-}
+.hero-tagline { font-family: 'Playfair Display', serif; font-size: clamp(38px, 4.5vw, 62px); font-weight: 900; line-height: 1.05; color: #fff; margin-bottom: 28px; animation: fadeUp .8s .15s ease both; }
+.hero-tagline em { font-style: italic; color: var(--orange); }
+.hero-sub { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,.65); max-width: 420px; margin-bottom: 48px; font-weight: 300; animation: fadeUp .8s .3s ease both; }
+.hero-cta-row { display: flex; align-items: center; gap: 24px; animation: fadeUp .8s .45s ease both; }
 .hero-note { font-size:13px; color:rgba(255,255,255,.4); }
+.hero-right { display: flex; align-items: center; justify-content: center; padding: 60px 40px 60px 0; position: relative; z-index: 2; animation: fadeLeft 1s .4s ease both; }
 
-.hero-right {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 40px 60px 0;
-  position: relative;
-  z-index: 2;
-  animation: fadeLeft 1s .4s ease both;
-}
+/* ── BOUTONS ─────────────────────────────────────────── */
+.btn-primary, .btn-secondary { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: transform .2s, box-shadow .2s, border-color .2s, color .2s, background .2s; position: relative; z-index: 3; }
+.btn-primary { background: var(--orange); color: #fff; border: none; padding: 16px 36px; border-radius: 6px; font-size: 15px; font-weight: 600; letter-spacing: .02em; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(224,123,57,.4); }
+.btn-secondary { background: transparent; color: rgba(255,255,255,.7); border: 1px solid rgba(255,255,255,.2); padding: 16px 32px; border-radius: 6px; font-size: 15px; font-weight: 500; }
+.btn-secondary:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.5); color: #fff; box-shadow: 0 12px 32px rgba(255,255,255,.08); }
 
-/* ── BOUTONS / CTA ───────────────────────────────────── */
-.btn-primary,
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
-  transition: transform .2s, box-shadow .2s, border-color .2s, color .2s, background .2s;
-  position: relative;
-  z-index: 3;
-}
-
-.btn-primary {
-  background: var(--orange);
-  color: #fff;
-  border: none;
-  padding: 16px 36px;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: .02em;
-}
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(224,123,57,.4);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: rgba(255,255,255,.7);
-  border: 1px solid rgba(255,255,255,.2);
-  padding: 16px 32px;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 500;
-}
-.btn-secondary:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255,255,255,.5);
-  color: #fff;
-  box-shadow: 0 12px 32px rgba(255,255,255,.08);
-}
-
-/* ── MOCKUP POSTE DE COMMANDE ─────────────────────────── */
-.mockup-shell {
-  width: 100%;
-  max-width: 580px;
-  background: #0F1E3A;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,.1);
-  box-shadow: 0 40px 100px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.06);
-  overflow: hidden;
-  font-size: 12px;
-}
-.mockup-bar {
-  background: #0A1628;
-  padding: 12px 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-bottom: 1px solid rgba(255,255,255,.06);
-}
+/* ── MOCKUP HERO ─────────────────────────────────────── */
+.mockup-shell { width: 100%; max-width: 580px; background: #0F1E3A; border-radius: 16px; border: 1px solid rgba(255,255,255,.1); box-shadow: 0 40px 100px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.06); overflow: hidden; font-size: 12px; }
+.mockup-bar { background: #0A1628; padding: 12px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,.06); }
 .mockup-dot { width:10px; height:10px; border-radius:50%; }
-.mockup-bar-title {
-  margin-left: 8px;
-  font-size: 11px;
-  color: rgba(255,255,255,.3);
-  letter-spacing: .06em;
-}
+.mockup-bar-title { margin-left: 8px; font-size: 11px; color: rgba(255,255,255,.3); letter-spacing: .06em; }
 .mockup-body { display: flex; height: 380px; }
-.mockup-nav {
-  width: 56px;
-  background: #0A1628;
-  border-right: 1px solid rgba(255,255,255,.06);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px 0;
-  gap: 20px;
-}
-.nav-icon {
-  width: 32px; height: 32px;
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px;
-  color: rgba(255,255,255,.3);
-  cursor: pointer;
-  transition: background .2s;
-}
+.mockup-nav { width: 56px; background: #0A1628; border-right: 1px solid rgba(255,255,255,.06); display: flex; flex-direction: column; align-items: center; padding: 16px 0; gap: 20px; }
+.nav-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: rgba(255,255,255,.3); cursor: pointer; transition: background .2s; }
 .nav-icon.active { background: rgba(14,124,123,.3); color: #4ECDC4; }
 .mockup-content { flex:1; padding: 16px; overflow: hidden; }
 .mockup-title { color: rgba(255,255,255,.9); font-weight: 600; font-size: 13px; margin-bottom: 14px; }
-
-/* KPI row */
 .kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
-.kpi-card {
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 8px;
-  padding: 10px;
-}
+.kpi-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 10px; }
 .kpi-val { font-size: 20px; font-weight: 700; color: #fff; }
-.kpi-val.green { color: #4ECDC4; }
-.kpi-val.orange { color: #F59E0B; }
-.kpi-val.red { color: #FC8181; }
+.kpi-val.green { color: #4ECDC4; } .kpi-val.orange { color: #F59E0B; } .kpi-val.red { color: #FC8181; }
 .kpi-lbl { font-size: 10px; color: rgba(255,255,255,.4); margin-top: 2px; }
-
-/* Alerts */
 .alert-section { margin-bottom: 12px; }
 .alert-label { font-size: 10px; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
-.alert-item {
-  display: flex; align-items: center; gap: 8px;
-  background: rgba(255,255,255,.04);
-  border-left: 2px solid;
-  border-radius: 0 6px 6px 0;
-  padding: 7px 10px;
-  margin-bottom: 5px;
-}
-.alert-item.urgent { border-color: #FC8181; }
-.alert-item.warn   { border-color: #F59E0B; }
-.alert-item.ok     { border-color: #4ECDC4; }
+.alert-item { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.04); border-left: 2px solid; border-radius: 0 6px 6px 0; padding: 7px 10px; margin-bottom: 5px; }
+.alert-item.urgent { border-color: #FC8181; } .alert-item.warn { border-color: #F59E0B; } .alert-item.ok { border-color: #4ECDC4; }
 .alert-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
-.urgent .alert-dot { background: #FC8181; }
-.warn .alert-dot   { background: #F59E0B; }
-.ok .alert-dot     { background: #4ECDC4; }
+.urgent .alert-dot { background: #FC8181; } .warn .alert-dot { background: #F59E0B; } .ok .alert-dot { background: #4ECDC4; }
 .alert-text { color: rgba(255,255,255,.75); font-size:11px; flex:1; }
 .alert-time { color: rgba(255,255,255,.3); font-size:10px; }
-
-/* Mini bar chart */
 .chart-row { display: flex; align-items: flex-end; gap: 4px; height: 48px; margin-top: 10px; }
-.bar {
-  flex:1; border-radius: 3px 3px 0 0;
-  background: rgba(14,124,123,.4);
-  transition: height .3s;
-}
+.bar { flex:1; border-radius: 3px 3px 0 0; background: rgba(14,124,123,.4); transition: height .3s; }
 .bar.hi { background: var(--teal); }
 .bar-labels { display: flex; gap: 4px; margin-top: 4px; }
 .bar-lbl { flex:1; text-align:center; font-size:9px; color:rgba(255,255,255,.3); }
 
-/* ── STATS STRIP ──────────────────────────────────────── */
-.stats-strip {
-  background: var(--navy);
-  padding: 40px 80px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.stat-item {
-  padding: 0 40px;
-  border-right: 1px solid rgba(255,255,255,.1);
-  text-align: center;
-  animation: fadeUp .6s ease both;
-}
+/* ── STATS ───────────────────────────────────────────── */
+.stats-strip { background: var(--navy); padding: 40px 80px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+.stat-item { padding: 0 40px; border-right: 1px solid rgba(255,255,255,.1); text-align: center; }
 .stat-item:last-child { border-right: none; }
-.stat-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  font-weight: 900;
-  color: #fff;
-  line-height: 1;
-}
+.stat-num { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 900; color: #fff; line-height: 1; }
 .stat-num span { color: var(--orange); }
 .stat-label { font-size: 13px; color: rgba(255,255,255,.5); margin-top: 6px; font-weight: 300; }
 
-/* ── SECTION BASE ─────────────────────────────────────── */
+/* ── SECTION BASE ────────────────────────────────────── */
 section { padding: 100px 80px; }
-.section-eyebrow {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: .14em;
-  color: var(--teal);
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 3.5vw, 52px);
-  font-weight: 900;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-.section-sub {
-  font-size: 17px;
-  color: var(--grey);
-  line-height: 1.7;
-  max-width: 560px;
-  font-weight: 300;
-}
+.section-eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .14em; color: var(--teal); font-weight: 600; margin-bottom: 16px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 3.5vw, 52px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+.section-sub { font-size: 17px; color: var(--grey); line-height: 1.7; max-width: 560px; font-weight: 300; }
 
-/* ── AVANT / APRÈS ────────────────────────────────────── */
-.before-after {
-  background: var(--cream);
-}
-.before-after-grid {
-  display: grid;
-  grid-template-columns: 1fr 80px 1fr;
-  gap: 0;
-  margin-top: 60px;
-  align-items: start;
-}
-.ba-col {
-  background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0,0,0,.06);
-}
-.ba-header {
-  padding: 20px 28px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.ba-header.bad  { background: #FEF2F2; }
-.ba-header.good { background: #E6F4F4; }
-.ba-icon { font-size: 20px; }
-.ba-title { font-weight: 700; font-size: 15px; }
-.ba-header.bad  .ba-title { color: var(--red); }
-.ba-header.good .ba-title { color: var(--teal); }
+/* ── AVANT / APRÈS ───────────────────────────────────── */
+.before-after { background: var(--cream); }
+.before-after-grid { display: grid; grid-template-columns: 1fr 80px 1fr; gap: 0; margin-top: 60px; align-items: start; }
+.ba-col { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.06); }
+.ba-header { padding: 20px 28px; display: flex; align-items: center; gap: 12px; }
+.ba-header.bad { background: #FEF2F2; } .ba-header.good { background: #E6F4F4; }
+.ba-icon { font-size: 20px; } .ba-title { font-weight: 700; font-size: 15px; }
+.ba-header.bad .ba-title { color: var(--red); } .ba-header.good .ba-title { color: var(--teal); }
 .ba-items { padding: 24px 28px; display: flex; flex-direction: column; gap: 14px; }
-.ba-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 14px 16px;
-  border-radius: 10px;
-  font-size: 14px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-.ba-item.bad  { background: #FEF2F2; color: #7F1D1D; border-left: 3px solid #FC8181; }
+.ba-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; border-radius: 10px; font-size: 14px; line-height: 1.5; font-weight: 400; }
+.ba-item.bad { background: #FEF2F2; color: #7F1D1D; border-left: 3px solid #FC8181; }
 .ba-item.good { background: #E6F4F4; color: #134E4A; border-left: 3px solid var(--teal); }
 .ba-item-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-
-.ba-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 8px;
-}
-.ba-arrow {
-  width: 48px; height: 48px;
-  background: var(--navy);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  color: #fff;
-  font-size: 20px;
-  box-shadow: 0 8px 24px rgba(26,60,110,.3);
-}
+.ba-divider { display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; }
+.ba-arrow { width: 48px; height: 48px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; box-shadow: 0 8px 24px rgba(26,60,110,.3); }
 .ba-divider-text { font-size: 11px; color: var(--grey); text-align: center; font-weight: 500; letter-spacing:.06em; text-transform:uppercase; }
-
-/* Verbatims */
-.verbatim-block {
-  margin-top: 16px;
-  padding: 0 28px 24px;
-}
-.verbatim {
-  background: rgba(0,0,0,.03);
-  border-radius: 10px;
-  padding: 16px;
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--grey);
-  font-style: italic;
-  border-left: 3px solid;
-}
-.verbatim.bad  { border-color: #FC8181; }
-.verbatim.good { border-color: var(--teal); }
+.verbatim-block { margin-top: 16px; padding: 0 28px 24px; }
+.verbatim { background: rgba(0,0,0,.03); border-radius: 10px; padding: 16px; font-size: 13px; line-height: 1.6; color: var(--grey); font-style: italic; border-left: 3px solid; }
+.verbatim.bad { border-color: #FC8181; } .verbatim.good { border-color: var(--teal); }
 .verbatim-author { font-size: 11px; color: var(--grey); margin-top: 8px; font-style: normal; font-weight: 600; }
 
-/* ── MODULES GRID ─────────────────────────────────────── */
+/* ── MODULES ─────────────────────────────────────────── */
 .modules { background: #fff; }
-.modules-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 60px;
-}
-.module-card {
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(0,0,0,.07);
-  transition: transform .3s, box-shadow .3s;
-  cursor: pointer;
-}
-.module-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 48px rgba(0,0,0,.1);
-}
-.module-header {
-  padding: 28px 28px 20px;
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-.module-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: #fff;
-  background: rgba(0,0,0,.35);
-  border-radius: 6px;
-  padding: 4px 10px;
-  flex-shrink: 0;
-}
-.module-name {
-  font-size: 17px;
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.3;
-}
+.modules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+.module-card { border-radius: 16px; overflow: hidden; border: 1px solid rgba(0,0,0,.07); transition: transform .3s, box-shadow .3s; }
+.module-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0,0,0,.1); }
+.module-header { padding: 28px 28px 20px; display: flex; align-items: flex-start; gap: 16px; }
+.module-num { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; color: #fff; background: rgba(0,0,0,.35); border-radius: 6px; padding: 4px 10px; flex-shrink: 0; }
+.module-name { font-size: 17px; font-weight: 700; color: #fff; line-height: 1.3; }
 .module-tag { font-size: 12px; color: rgba(255,255,255,.6); margin-top: 4px; }
 .module-body { background: #fff; padding: 20px 28px 24px; }
 .module-desc { font-size: 14px; color: var(--grey); line-height: 1.6; margin-bottom: 16px; }
-.module-kpi {
-  display: flex;
-  gap: 10px;
-}
-.mkpi {
-  flex:1;
-  background: var(--grey-l);
-  border-radius: 8px;
-  padding: 10px 12px;
-  text-align: center;
-}
+.module-kpi { display: flex; gap: 10px; margin-bottom: 16px; }
+.mkpi { flex:1; background: var(--grey-l); border-radius: 8px; padding: 10px 12px; text-align: center; }
 .mkpi-val { font-size: 18px; font-weight: 700; color: var(--navy); }
 .mkpi-lbl { font-size: 10px; color: var(--grey); margin-top: 2px; line-height: 1.3; }
 
-/* Module mockups inside cards */
-.module-mockup {
-  margin: 0 20px 20px;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.1);
-  background: #0F1E3A;
+/* Bouton Découvrir */
+.btn-discover {
+  display: block;
+  width: 100%;
+  padding: 11px 16px;
+  background: var(--grey-l);
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+  text-align: center;
+  margin-top: 4px;
 }
-.mm-bar {
-  height: 28px;
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  gap: 6px;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
+.btn-discover:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+/* Module mockups */
+.module-mockup { margin: 0 20px 20px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,.1); background: #0F1E3A; }
+.mm-bar { height: 28px; display: flex; align-items: center; padding: 0 10px; gap: 6px; border-bottom: 1px solid rgba(255,255,255,.08); }
 .mm-dot { width:7px; height:7px; border-radius:50%; }
 .mm-content { padding: 10px; }
-
-/* Overrides dark context inside module mockups */
-.module-mockup .kpi-card {
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.12);
-}
-.module-mockup .kpi-val        { color: #fff !important; font-size: 16px; }
-.module-mockup .kpi-val.green  { color: #4ECDC4 !important; }
+.module-mockup .kpi-card { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); }
+.module-mockup .kpi-val { color: #fff !important; font-size: 16px; }
+.module-mockup .kpi-val.green { color: #4ECDC4 !important; }
 .module-mockup .kpi-val.orange { color: #F59E0B !important; }
-.module-mockup .kpi-val.red    { color: #FC8181 !important; }
-.module-mockup .kpi-lbl        { color: rgba(255,255,255,.55); font-size: 9px; }
-.module-mockup .alert-item     { background: rgba(255,255,255,.06); }
-.module-mockup .alert-text     { color: rgba(255,255,255,.88) !important; font-size: 10px; }
-.module-mockup .alert-label    { color: rgba(255,255,255,.45); }
-.module-mockup .bar-lbl        { color: rgba(255,255,255,.4); }
-.module-mockup .chart-row      { height: 36px; }
-.module-mockup .kanban-label   { color: rgba(255,255,255,.45); }
-.module-mockup .kanban-card    { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.1); }
+.module-mockup .kpi-val.red { color: #FC8181 !important; }
+.module-mockup .kpi-lbl { color: rgba(255,255,255,.55); font-size: 9px; }
+.module-mockup .alert-item { background: rgba(255,255,255,.06); }
+.module-mockup .alert-text { color: rgba(255,255,255,.88) !important; font-size: 10px; }
+.module-mockup .alert-label { color: rgba(255,255,255,.45); }
+.module-mockup .bar-lbl { color: rgba(255,255,255,.4); }
+.module-mockup .chart-row { height: 36px; }
+.module-mockup .kanban-label { color: rgba(255,255,255,.45); }
+.module-mockup .kanban-card { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.1); }
 .module-mockup .kanban-card-name { color: #fff; }
-.module-mockup .kanban-card-sub  { color: rgba(255,255,255,.5); }
-
-/* Partenaires mockup */
+.module-mockup .kanban-card-sub { color: rgba(255,255,255,.5); }
 .partner-list { display: flex; flex-direction: column; gap: 6px; }
-.partner-row {
-  display: flex; align-items: center; gap: 8px;
-  background: #fff;
-  border-radius: 6px;
-  padding: 7px 10px;
-  border: 1px solid rgba(0,0,0,.06);
-  font-size: 10px;
-}
-.partner-status {
-  width: 8px; height: 8px; border-radius: 50%; flex-shrink:0;
-}
+.partner-row { display: flex; align-items: center; gap: 8px; background: #fff; border-radius: 6px; padding: 7px 10px; border: 1px solid rgba(0,0,0,.06); font-size: 10px; }
+.partner-status { width: 8px; height: 8px; border-radius: 50%; flex-shrink:0; }
 .partner-name { flex:1; color: var(--dark); font-weight: 500; }
-.partner-badge {
-  font-size: 9px; padding: 2px 7px; border-radius: 100px; font-weight: 600;
-}
-.partner-badge.actif    { background: #DCFCE7; color: #166534; }
-.partner-badge.relance  { background: #FEF9C3; color: #854D0E; }
+.partner-badge { font-size: 9px; padding: 2px 7px; border-radius: 100px; font-weight: 600; }
+.partner-badge.actif { background: #DCFCE7; color: #166534; }
+.partner-badge.relance { background: #FEF9C3; color: #854D0E; }
 .partner-badge.prospect { background: #EFF6FF; color: #1E40AF; }
 .partner-flux { font-size: 10px; color: var(--grey); }
-
-/* Admissions mockup */
 .kanban { display: flex; gap: 6px; }
 .kanban-col { flex:1; }
 .kanban-label { font-size: 9px; color: var(--grey); text-transform: uppercase; letter-spacing:.06em; margin-bottom: 5px; font-weight:600; }
-.kanban-card {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,.07);
-  border-radius: 5px;
-  padding: 6px 8px;
-  margin-bottom: 4px;
-  font-size: 10px;
-}
+.kanban-card { background: #fff; border: 1px solid rgba(0,0,0,.07); border-radius: 5px; padding: 6px 8px; margin-bottom: 4px; font-size: 10px; }
 .kanban-card-name { color: var(--dark); font-weight: 600; }
-.kanban-card-sub  { color: var(--grey); font-size: 9px; }
-.kanban-card-dot  { width:6px; height:6px; border-radius:50%; float:right; margin-top:2px; }
-
-/* Qualité mockup */
+.kanban-card-sub { color: var(--grey); font-size: 9px; }
+.kanban-card-dot { width:6px; height:6px; border-radius:50%; float:right; margin-top:2px; }
 .has-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
-.has-item {
-  border-radius: 5px;
-  padding: 6px;
-  text-align: center;
-  font-size: 9px;
-  font-weight: 600;
-}
-.has-item.ok  { background: #DCFCE7; color: #166534; }
-.has-item.nok { background: #FEF2F2; color: #991B1B; }
+.has-item { border-radius: 5px; padding: 6px; text-align: center; font-size: 9px; font-weight: 600; }
+.has-item.ok { background: #DCFCE7; color: #166534; }
 .has-label { font-size: 8px; margin-top: 2px; color: inherit; font-weight: 400; }
-
-/* Pilotage mockup */
 .gauge-row { display: flex; gap: 8px; justify-content: center; padding: 4px 0; }
 .gauge { text-align: center; }
-.gauge-circle {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 11px; font-weight: 700;
-  border: 3px solid;
-}
+.gauge-circle { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; border: 3px solid; }
 .gauge-circle.g1 { border-color: var(--teal); color: var(--teal); background: rgba(14,124,123,.08); }
 .gauge-circle.g2 { border-color: #F59E0B; color: #D97706; background: rgba(245,158,11,.08); }
 .gauge-circle.g3 { border-color: #6366F1; color: #4F46E5; background: rgba(99,102,241,.08); }
 .gauge-lbl { font-size: 9px; color: var(--grey); margin-top: 4px; }
-
-/* Familles mockup */
 .chat-feed { display: flex; flex-direction: column; gap: 5px; }
-.chat-bubble {
-  padding: 6px 10px;
-  border-radius: 10px;
-  font-size: 10px;
-  line-height: 1.4;
-  max-width: 85%;
-}
-.chat-bubble.in  { background: #EFF6FF; color: #1E40AF; align-self: flex-start; border-bottom-left-radius: 3px; }
+.chat-bubble { padding: 6px 10px; border-radius: 10px; font-size: 10px; line-height: 1.4; max-width: 85%; }
+.chat-bubble.in { background: #EFF6FF; color: #1E40AF; align-self: flex-start; border-bottom-left-radius: 3px; }
 .chat-bubble.out { background: var(--teal); color: #fff; align-self: flex-end; border-bottom-right-radius: 3px; }
-.chat-tag { font-size: 9px; color: var(--grey); margin-left: 4px; }
 
-/* ── JOURNÉE TYPE ─────────────────────────────────────── */
-.journee { background: var(--navy-d); color: #fff; }
-.journee .section-title { color: #fff; }
-.journee .section-sub   { color: rgba(255,255,255,.55); }
-.journee .section-eyebrow { color: var(--orange); }
-
-.timeline {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0;
-  margin-top: 60px;
-  position: relative;
-}
-.timeline::before {
-  content:'';
-  position: absolute;
-  top: 52px; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--teal), var(--orange));
-  z-index: 0;
-}
-.tl-item {
+/* ═══════════════════════════════════════════════════════
+   MODALES
+═══════════════════════════════════════════════════════ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,20,40,.85);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 16px;
-  padding: 0 16px;
-  position: relative;
-  z-index: 1;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
 }
-.tl-time {
-  font-size: 13px;
-  color: var(--orange);
-  font-weight: 700;
-  letter-spacing: .06em;
-  background: var(--navy-d);
-  padding: 0 8px;
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
 }
-.tl-dot {
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  background: var(--teal);
-  border: 3px solid var(--navy-d);
-  box-shadow: 0 0 0 2px var(--teal);
-}
-.tl-card {
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 12px;
-  padding: 20px;
-  width: 100%;
-  text-align: center;
-}
-.tl-emoji { font-size: 24px; margin-bottom: 10px; }
-.tl-action { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 6px; line-height: 1.4; }
-.tl-detail { font-size: 12px; color: rgba(255,255,255,.5); line-height: 1.5; }
-.tl-badge {
-  display: inline-block;
-  font-size: 10px;
-  padding: 3px 10px;
-  border-radius: 100px;
-  font-weight: 600;
-  margin-top: 10px;
-}
-.tl-badge.auto { background: rgba(14,124,123,.3); color: #4ECDC4; border: 1px solid rgba(14,124,123,.4); }
-.tl-badge.gain { background: rgba(224,123,57,.2); color: var(--orange); border: 1px solid rgba(224,123,57,.3); }
-
-/* ── ROI SECTION ─────────────────────────────────────── */
-.roi { background: var(--cream); }
-.roi-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  margin-top: 60px;
-  align-items: center;
-}
-.roi-cards { display: flex; flex-direction: column; gap: 16px; }
-.roi-card {
+.modal-box {
   background: #fff;
-  border-radius: 14px;
-  padding: 24px 28px;
-  border: 1px solid rgba(0,0,0,.07);
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  box-shadow: 0 2px 12px rgba(0,0,0,.04);
-  transition: transform .2s;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 880px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 40px 100px rgba(0,0,0,.4);
+  transform: translateY(20px) scale(.97);
+  transition: transform .35s ease;
+  position: relative;
 }
-.roi-card:hover { transform: translateX(6px); }
-.roi-icon {
+.modal-overlay.open .modal-box {
+  transform: translateY(0) scale(1);
+}
+
+/* Barre onglets simulée en haut de la modale */
+.modal-nav-bar {
+  background: #0A1628;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border-radius: 20px 20px 0 0;
+  overflow-x: auto;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.modal-nav-dots {
+  display: flex;
+  gap: 6px;
+  padding: 12px 0;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+.modal-nav-dots span { width:10px; height:10px; border-radius:50%; }
+.modal-tab {
+  padding: 12px 14px;
+  font-size: 11px;
+  color: rgba(255,255,255,.35);
+  white-space: nowrap;
+  cursor: default;
+  border-bottom: 2px solid transparent;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+.modal-tab.active {
+  color: #4ECDC4;
+  border-bottom-color: #4ECDC4;
+}
+
+/* Header modale */
+.modal-header {
+  padding: 28px 32px 24px;
+  border-bottom: 1px solid rgba(0,0,0,.07);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.modal-header-left { display: flex; align-items: flex-start; gap: 16px; }
+.modal-badge {
   width: 48px; height: 48px;
   border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
   font-size: 22px;
   flex-shrink: 0;
 }
-.roi-card-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: var(--dark); }
-.roi-card-desc  { font-size: 13px; color: var(--grey); line-height: 1.6; }
-.roi-card-num   { font-size: 22px; font-weight: 900; margin-top: 8px; }
-
-/* Pricing mockup */
-.pricing-box {
-  background: var(--navy);
-  border-radius: 20px;
-  padding: 40px;
-  color: #fff;
+.modal-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--dark); margin-bottom: 4px; }
+.modal-subtitle { font-size: 13px; color: var(--grey); }
+.modal-close {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--grey-l);
+  border: none;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  color: var(--grey);
+  flex-shrink: 0;
+  transition: background .2s;
 }
+.modal-close:hover { background: #e5e7eb; }
+
+/* Corps modale */
+.modal-body { padding: 28px 32px 32px; }
+
+/* Verbatim dans modale */
+.modal-verbatim {
+  background: #FFF8F4;
+  border-left: 4px solid var(--orange);
+  border-radius: 0 10px 10px 0;
+  padding: 18px 20px;
+  margin-bottom: 28px;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--dark);
+  line-height: 1.65;
+}
+.modal-verbatim-author { font-size: 12px; color: var(--grey); margin-top: 8px; font-style: normal; font-weight: 600; }
+
+/* Process steps (générique) */
+.modal-steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 28px; }
+.modal-step {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  position: relative;
+}
+.modal-step:last-child { border-bottom: none; }
+.step-num {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 900;
+  color: #fff;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.step-content { flex:1; }
+.step-title { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+.step-desc { font-size: 13px; color: var(--grey); line-height: 1.6; margin-bottom: 8px; }
+.step-accord {
+  display: inline-block;
+  background: var(--teal-l);
+  border: 1px solid rgba(14,124,123,.2);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--teal);
+  font-style: italic;
+}
+
+/* Grid 2 colonnes dans modale */
+.modal-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+.modal-feature {
+  background: var(--grey-l);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.modal-feature-icon { font-size: 18px; flex-shrink: 0; }
+.modal-feature-title { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 3px; }
+.modal-feature-desc { font-size: 12px; color: var(--grey); line-height: 1.5; }
+
+/* KPIs dans modale */
+.modal-kpis { display: flex; gap: 12px; margin-bottom: 24px; }
+.modal-kpi {
+  flex:1;
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.modal-kpi-val { font-size: 24px; font-weight: 900; color: #fff; font-family: 'Playfair Display', serif; }
+.modal-kpi-lbl { font-size: 11px; color: rgba(255,255,255,.6); margin-top: 4px; line-height: 1.3; }
+
+/* CTA dans modale */
+.modal-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0,0,0,.07);
+}
+.modal-cta-text { font-size: 13px; color: var(--grey); }
+.btn-modal-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--orange);
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.btn-modal-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(224,123,57,.4); }
+
+/* Section titre dans modale */
+.modal-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--grey);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 14px;
+}
+
+/* ── JOURNÉE ─────────────────────────────────────────── */
+.journee { background: var(--navy-d); color: #fff; }
+.journee .section-title { color: #fff; }
+.journee .section-sub { color: rgba(255,255,255,.55); }
+.journee .section-eyebrow { color: var(--orange); }
+.timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 60px; position: relative; }
+.timeline::before { content:''; position: absolute; top: 52px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--teal), var(--orange)); z-index: 0; }
+.tl-item { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 0 16px; position: relative; z-index: 1; }
+.tl-time { font-size: 13px; color: var(--orange); font-weight: 700; letter-spacing: .06em; background: var(--navy-d); padding: 0 8px; }
+.tl-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--teal); border: 3px solid var(--navy-d); box-shadow: 0 0 0 2px var(--teal); }
+.tl-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 20px; width: 100%; text-align: center; }
+.tl-emoji { font-size: 24px; margin-bottom: 10px; }
+.tl-action { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 6px; line-height: 1.4; }
+.tl-detail { font-size: 12px; color: rgba(255,255,255,.5); line-height: 1.5; }
+.tl-badge { display: inline-block; font-size: 10px; padding: 3px 10px; border-radius: 100px; font-weight: 600; margin-top: 10px; }
+.tl-badge.auto { background: rgba(14,124,123,.3); color: #4ECDC4; border: 1px solid rgba(14,124,123,.4); }
+.tl-badge.gain { background: rgba(224,123,57,.2); color: var(--orange); border: 1px solid rgba(224,123,57,.3); }
+
+/* ── ROI ─────────────────────────────────────────────── */
+.roi { background: var(--cream); }
+.roi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 60px; align-items: center; }
+.roi-cards { display: flex; flex-direction: column; gap: 16px; }
+.roi-card { background: #fff; border-radius: 14px; padding: 24px 28px; border: 1px solid rgba(0,0,0,.07); display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 2px 12px rgba(0,0,0,.04); transition: transform .2s; }
+.roi-card:hover { transform: translateX(6px); }
+.roi-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.roi-card-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: var(--dark); }
+.roi-card-desc { font-size: 13px; color: var(--grey); line-height: 1.6; }
+.roi-card-num { font-size: 22px; font-weight: 900; margin-top: 8px; }
+.pricing-box { background: var(--navy); border-radius: 20px; padding: 40px; color: #fff; }
 .pricing-eyebrow { font-size: 12px; text-transform:uppercase; letter-spacing:.1em; color: var(--orange); font-weight:600; margin-bottom:12px; }
 .pricing-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; margin-bottom: 8px; }
 .pricing-sub { font-size: 14px; color: rgba(255,255,255,.55); margin-bottom: 32px; }
 .pricing-tiers { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
-.pricing-tier {
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 10px;
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.pricing-tier.highlighted {
-  background: rgba(14,124,123,.25);
-  border-color: rgba(14,124,123,.5);
-}
+.pricing-tier { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 10px; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
+.pricing-tier.highlighted { background: rgba(14,124,123,.25); border-color: rgba(14,124,123,.5); }
 .tier-label { font-size: 13px; color: rgba(255,255,255,.75); }
 .tier-price { font-size: 18px; font-weight: 700; color: #fff; }
 .tier-price span { font-size: 12px; font-weight: 400; color: rgba(255,255,255,.5); }
-.pricing-note {
-  font-size: 13px;
-  color: rgba(255,255,255,.5);
-  border-top: 1px solid rgba(255,255,255,.08);
-  padding-top: 20px;
-  line-height: 1.6;
-}
+.pricing-note { font-size: 13px; color: rgba(255,255,255,.5); border-top: 1px solid rgba(255,255,255,.08); padding-top: 20px; line-height: 1.6; }
 .pricing-note strong { color: rgba(255,255,255,.85); }
 
-/* ── COEXIST SECTION ─────────────────────────────────── */
+/* ── COEXIST ─────────────────────────────────────────── */
 .coexist { background: #fff; text-align: center; }
 .coexist .section-title { max-width: 640px; margin: 0 auto 16px; }
-.coexist .section-sub   { max-width: 520px; margin: 0 auto 60px; }
-.tools-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-.tool-chip {
-  background: var(--grey-l);
-  border: 1px solid rgba(0,0,0,.08);
-  border-radius: 100px;
-  padding: 10px 22px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--dark);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+.coexist .section-sub { max-width: 520px; margin: 0 auto 60px; }
+.tools-row { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+.tool-chip { background: var(--grey-l); border: 1px solid rgba(0,0,0,.08); border-radius: 100px; padding: 10px 22px; font-size: 14px; font-weight: 600; color: var(--dark); display: flex; align-items: center; gap: 8px; }
 .tool-chip .chip-icon { font-size: 16px; }
-.tool-plus {
-  font-size: 20px;
-  color: var(--grey);
-  font-weight: 300;
-}
-.tool-nexicare {
-  background: var(--navy);
-  color: #fff;
-  border-color: var(--navy);
-  box-shadow: 0 8px 24px rgba(26,60,110,.3);
-}
-.coexist-note {
-  font-size: 15px;
-  color: var(--grey);
-  line-height: 1.7;
-  max-width: 500px;
-  margin: 0 auto;
-  font-style: italic;
-}
+.tool-plus { font-size: 20px; color: var(--grey); font-weight: 300; }
+.tool-nexicare { background: var(--navy); color: #fff; border-color: var(--navy); box-shadow: 0 8px 24px rgba(26,60,110,.3); }
+.coexist-note { font-size: 15px; color: var(--grey); line-height: 1.7; max-width: 500px; margin: 0 auto; font-style: italic; }
 .coexist-note strong { color: var(--dark); font-style: normal; }
 
-/* ── CTA FINAL ────────────────────────────────────────── */
-.cta-final {
-  background: linear-gradient(135deg, var(--navy-d) 0%, #0E2D5E 50%, rgba(14,124,123,.4) 100%);
-  text-align: center;
-  padding: 120px 80px;
-  position: relative;
-  overflow: hidden;
-}
-.cta-final::before {
-  content:'';
-  position:absolute; inset:0;
-  background: radial-gradient(ellipse at 50% 50%, rgba(224,123,57,.1) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-.cta-final > * {
-  position: relative;
-  z-index: 2;
-}
+/* ── CTA FINAL ───────────────────────────────────────── */
+.cta-final { background: linear-gradient(135deg, var(--navy-d) 0%, #0E2D5E 50%, rgba(14,124,123,.4) 100%); text-align: center; padding: 120px 80px; position: relative; overflow: hidden; }
+.cta-final::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 50%, rgba(224,123,57,.1) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+.cta-final > * { position: relative; z-index: 2; }
 .cta-final .section-eyebrow { color: var(--orange); }
 .cta-final .section-title { color: #fff; max-width: 600px; margin: 0 auto 20px; }
-.cta-final .section-sub   { color: rgba(255,255,255,.55); margin: 0 auto 48px; }
+.cta-final .section-sub { color: rgba(255,255,255,.55); margin: 0 auto 48px; }
 .cta-row { display: flex; align-items: center; justify-content: center; gap: 20px; }
-
-.founders-strip {
-  margin-top: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 48px;
-  padding-top: 48px;
-  border-top: 1px solid rgba(255,255,255,.1);
-}
-.founder {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.founder-avatar {
-  width: 52px; height: 52px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px;
-  font-weight: 700;
-  color: #fff;
-  font-family: 'Playfair Display', serif;
-  flex-shrink: 0;
-}
+.founders-strip { margin-top: 60px; display: flex; align-items: center; justify-content: center; gap: 48px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,.1); }
+.founder { display: flex; align-items: center; gap: 16px; }
+.founder-avatar { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; color: #fff; font-family: 'Playfair Display', serif; flex-shrink: 0; }
 .founder-name { font-size: 14px; font-weight: 600; color: #fff; }
 .founder-role { font-size: 12px; color: rgba(255,255,255,.5); line-height: 1.4; }
-.founder-sep  { width:1px; height:48px; background:rgba(255,255,255,.15); }
+.founder-sep { width:1px; height:48px; background:rgba(255,255,255,.15); }
 
-/* ── ANIMATIONS ───────────────────────────────────────── */
-@keyframes fadeUp {
-  from { opacity:0; transform:translateY(24px); }
-  to   { opacity:1; transform:translateY(0); }
-}
-@keyframes fadeLeft {
-  from { opacity:0; transform:translateX(30px); }
-  to   { opacity:1; transform:translateX(0); }
-}
+/* ── ANIMATIONS ──────────────────────────────────────── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeLeft { from { opacity:0; transform:translateX(30px); } to { opacity:1; transform:translateX(0); } }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.scroll-hint { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,.3); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; animation: fadeUp 1s 1s ease both; }
+.scroll-arrow { width: 24px; height: 24px; border-right: 2px solid rgba(255,255,255,.3); border-bottom: 2px solid rgba(255,255,255,.3); transform: rotate(45deg); animation: bounce 1.5s infinite; margin-top: -8px; }
+@keyframes bounce { 0%,100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(45deg) translateY(6px); } }
+.confidential { background: var(--dark); text-align: center; padding: 20px; font-size: 12px; color: rgba(255,255,255,.25); letter-spacing: .06em; }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity .7s ease, transform .7s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Scroll hint */
-.scroll-hint {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  color: rgba(255,255,255,.3);
-  font-size: 11px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  animation: fadeUp 1s 1s ease both;
-}
-.scroll-arrow {
-  width: 24px; height: 24px;
-  border-right: 2px solid rgba(255,255,255,.3);
-  border-bottom: 2px solid rgba(255,255,255,.3);
-  transform: rotate(45deg);
-  animation: bounce 1.5s infinite;
-  margin-top: -8px;
-}
-@keyframes bounce {
-  0%,100% { transform: rotate(45deg) translateY(0); }
-  50%      { transform: rotate(45deg) translateY(6px); }
-}
-
-/* Confidential footer */
-.confidential {
-  background: var(--dark);
-  text-align: center;
-  padding: 20px;
-  font-size: 12px;
-  color: rgba(255,255,255,.25);
-  letter-spacing: .06em;
-}
-
-/* ── RESPONSIVE ───────────────────────────────────────── */
-@media (max-width: 1200px) {
-  .modules-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .timeline {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  .timeline::before {
-    display: none;
-  }
-}
-
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-left,
-  .hero-right,
-  section,
-  .stats-strip,
-  .cta-final {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  .hero-right {
-    padding-top: 0;
-    padding-bottom: 40px;
-  }
-
-  .stats-strip {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  .stat-item {
-    border-right: none;
-    padding: 0;
-  }
-
-  .before-after-grid,
-  .roi-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ba-divider {
-    padding: 24px 0;
-  }
-
-  .modules-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .timeline {
-    grid-template-columns: 1fr;
-  }
-
-  .cta-row,
-  .hero-cta-row,
-  .founders-strip {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .cta-final .cta-row {
-    align-items: center;
-  }
-
-  .founder-sep {
-    display: none;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero-tagline {
-    font-size: 36px;
-  }
-
-  .section-title {
-    font-size: 32px;
-  }
-
-  .stats-strip {
-    grid-template-columns: 1fr;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-  }
-
-  .hero-cta-row,
-  .cta-row {
-    width: 100%;
-  }
-
-  .cta-row {
-    gap: 12px;
-  }
-
-  .pricing-tier {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-}
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 1200px) { .modules-grid { grid-template-columns: repeat(2, 1fr); } .timeline { grid-template-columns: repeat(2, 1fr); gap: 24px; } .timeline::before { display: none; } }
+@media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .hero-left, .hero-right, section, .stats-strip, .cta-final { padding-left: 24px; padding-right: 24px; } .hero-right { padding-top: 0; padding-bottom: 40px; } .stats-strip { grid-template-columns: repeat(2, 1fr); gap: 24px; } .stat-item { border-right: none; padding: 0; } .before-after-grid, .roi-grid { grid-template-columns: 1fr; } .ba-divider { padding: 24px 0; } .modules-grid { grid-template-columns: 1fr; } .timeline { grid-template-columns: 1fr; } .cta-row, .hero-cta-row, .founders-strip { flex-direction: column; align-items: flex-start; } .cta-final .cta-row { align-items: center; } .founder-sep { display: none; } .modal-grid-2 { grid-template-columns: 1fr; } .modal-kpis { flex-wrap: wrap; } }
+@media (max-width: 600px) { .hero-tagline { font-size: 36px; } .section-title { font-size: 32px; } .stats-strip { grid-template-columns: 1fr; } .btn-primary, .btn-secondary { width: 100%; } .hero-cta-row, .cta-row { width: 100%; } .cta-row { gap: 12px; } .pricing-tier { flex-direction: column; align-items: flex-start; gap: 8px; } .modal-box { border-radius: 16px; } .modal-body, .modal-header { padding: 20px; } }
 </style>
 </head>
 <body>
 
+<!-- ══ HERO ════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-left">
     <div class="logo-badge">
       <div class="logo-dot"></div>
       <span>NexiCare — Stream Health</span>
     </div>
-
-    <h1 class="hero-tagline">
-      Le cockpit qui manquait<br>
-      à votre <em>organisation.</em>
-    </h1>
-
-    <p class="hero-sub">
-      Vos équipes ont des outils pour <strong style="color:#fff">faire</strong>. 
-      NexiCare leur donne enfin un outil pour <strong style="color:#fff">voir, décider et piloter</strong> — 
-      en temps réel, sans double saisie, sans friction.
-    </p>
-
+    <h1 class="hero-tagline">Le cockpit qui manquait<br>à votre <em>organisation.</em></h1>
+    <p class="hero-sub">Vos équipes ont des outils pour <strong style="color:#fff">faire</strong>. NexiCare leur donne enfin un outil pour <strong style="color:#fff">voir, décider et piloter</strong> — en temps réel, sans double saisie, sans friction.</p>
     <div class="hero-cta-row">
-      <a href="https://calendly.com/nexicare/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">
-        Demander une démo
-      </a>
+      <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">Demander une démo</a>
       <span class="hero-note">30 min · Sans engagement</span>
     </div>
   </div>
-
   <div class="hero-right">
     <div class="mockup-shell">
       <div class="mockup-bar">
@@ -1014,94 +535,50 @@ section { padding: 100px 80px; }
         <div class="mockup-content">
           <div class="mockup-title">Bonjour Sophie — 8 actions aujourd'hui</div>
           <div class="kpi-row">
-            <div class="kpi-card">
-              <div class="kpi-val green">18</div>
-              <div class="kpi-lbl">Dossiers actifs</div>
-            </div>
-            <div class="kpi-card">
-              <div class="kpi-val orange">3</div>
-              <div class="kpi-lbl">Admissions en cours</div>
-            </div>
-            <div class="kpi-card">
-              <div class="kpi-val red">2</div>
-              <div class="kpi-lbl">Alertes urgentes</div>
-            </div>
+            <div class="kpi-card"><div class="kpi-val green">18</div><div class="kpi-lbl">Dossiers actifs</div></div>
+            <div class="kpi-card"><div class="kpi-val orange">3</div><div class="kpi-lbl">Admissions en cours</div></div>
+            <div class="kpi-card"><div class="kpi-val red">2</div><div class="kpi-lbl">Alertes urgentes</div></div>
           </div>
           <div class="alert-section">
             <div class="alert-label">Actions prioritaires</div>
-            <div class="alert-item urgent">
-              <div class="alert-dot"></div>
-              <div class="alert-text">Mme Dupont — Dossier inactif depuis 5 jours</div>
-              <div class="alert-time">09:00</div>
-            </div>
-            <div class="alert-item warn">
-              <div class="alert-dot"></div>
-              <div class="alert-text">CH Saint-Antoine — Relance prescripteur J+15</div>
-              <div class="alert-time">10:30</div>
-            </div>
-            <div class="alert-item ok">
-              <div class="alert-dot"></div>
-              <div class="alert-text">Contrat M. Bernard — Signature électronique reçue ✓</div>
-              <div class="alert-time">08:14</div>
-            </div>
+            <div class="alert-item urgent"><div class="alert-dot"></div><div class="alert-text">Mme Dupont — Dossier inactif depuis 5 jours</div><div class="alert-time">09:00</div></div>
+            <div class="alert-item warn"><div class="alert-dot"></div><div class="alert-text">CH Saint-Antoine — Relance prescripteur J+15</div><div class="alert-time">10:30</div></div>
+            <div class="alert-item ok"><div class="alert-dot"></div><div class="alert-text">Contrat M. Bernard — Signature électronique reçue ✓</div><div class="alert-time">08:14</div></div>
           </div>
           <div class="alert-label">Admissions ce mois</div>
           <div class="chart-row">
-            <div class="bar" style="height:30%"></div>
-            <div class="bar" style="height:45%"></div>
-            <div class="bar" style="height:60%"></div>
-            <div class="bar" style="height:40%"></div>
-            <div class="bar hi" style="height:80%"></div>
-            <div class="bar hi" style="height:90%"></div>
+            <div class="bar" style="height:30%"></div><div class="bar" style="height:45%"></div>
+            <div class="bar" style="height:60%"></div><div class="bar" style="height:40%"></div>
+            <div class="bar hi" style="height:80%"></div><div class="bar hi" style="height:90%"></div>
             <div class="bar" style="height:70%"></div>
           </div>
           <div class="bar-labels">
-            <div class="bar-lbl">S1</div><div class="bar-lbl">S2</div>
-            <div class="bar-lbl">S3</div><div class="bar-lbl">S4</div>
-            <div class="bar-lbl">S5</div><div class="bar-lbl">S6</div>
-            <div class="bar-lbl">S7</div>
+            <div class="bar-lbl">S1</div><div class="bar-lbl">S2</div><div class="bar-lbl">S3</div>
+            <div class="bar-lbl">S4</div><div class="bar-lbl">S5</div><div class="bar-lbl">S6</div><div class="bar-lbl">S7</div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="scroll-hint">
-    Découvrir
-    <div class="scroll-arrow"></div>
-  </div>
+  <div class="scroll-hint">Découvrir<div class="scroll-arrow"></div></div>
 </section>
 
+<!-- ══ STATS ════════════════════════════════════════════ -->
 <div class="stats-strip">
-  <div class="stat-item">
-    <div class="stat-num">40<span>K+</span></div>
-    <div class="stat-label">Structures adressables en France</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">8</div>
-    <div class="stat-label">Modules fonctionnels intégrés</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">−<span>30</span>%</div>
-    <div class="stat-label">Délai traitement des admissions</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">100<span>%</span></div>
-    <div class="stat-label">Couverture critères HAS intégrée</div>
-  </div>
+  <div class="stat-item"><div class="stat-num">40<span>K+</span></div><div class="stat-label">Structures adressables en France</div></div>
+  <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">Modules fonctionnels intégrés</div></div>
+  <div class="stat-item"><div class="stat-num">−<span>30</span>%</div><div class="stat-label">Délai traitement des admissions</div></div>
+  <div class="stat-item"><div class="stat-num">100<span>%</span></div><div class="stat-label">Couverture critères HAS intégrée</div></div>
 </div>
 
+<!-- ══ AVANT / APRÈS ════════════════════════════════════ -->
 <section class="before-after">
   <div class="section-eyebrow">Le quotidien avant et après</div>
   <h2 class="section-title">Ce qui change<br>concrètement pour vos équipes</h2>
   <p class="section-sub">Pas de promesse abstraite. Voici ce que vivent vos coordinatrices, directeurs et responsables qualité — avant NexiCare, et avec NexiCare.</p>
-
   <div class="before-after-grid reveal">
     <div class="ba-col">
-      <div class="ba-header bad">
-        <span class="ba-icon">😓</span>
-        <span class="ba-title">Avant NexiCare</span>
-      </div>
+      <div class="ba-header bad"><span class="ba-icon">😓</span><span class="ba-title">Avant NexiCare</span></div>
       <div class="ba-items">
         <div class="ba-item bad"><span class="ba-item-icon">📧</span>"Les demandes arrivent par mail, téléphone, ViaTrajectoire… on perd des dossiers. On ne sait jamais vraiment où on en est."</div>
         <div class="ba-item bad"><span class="ba-item-icon">📊</span>"Avant chaque réunion de direction, je passe deux heures sur Excel à consolider des chiffres qui ont déjà un jour de retard."</div>
@@ -1114,17 +591,9 @@ section { padding: 100px 80px; }
         <div class="verbatim-author">— Directrice SAD, 180 bénéficiaires</div>
       </div>
     </div>
-
-    <div class="ba-divider">
-      <div class="ba-arrow">→</div>
-      <div class="ba-divider-text">NexiCare<br>change<br>tout</div>
-    </div>
-
+    <div class="ba-divider"><div class="ba-arrow">→</div><div class="ba-divider-text">NexiCare<br>change<br>tout</div></div>
     <div class="ba-col">
-      <div class="ba-header good">
-        <span class="ba-icon">🚀</span>
-        <span class="ba-title">Avec NexiCare</span>
-      </div>
+      <div class="ba-header good"><span class="ba-icon">🚀</span><span class="ba-title">Avec NexiCare</span></div>
       <div class="ba-items">
         <div class="ba-item good"><span class="ba-item-icon">⚡</span>Pipeline visuel de toutes les demandes en un endroit. Import automatique depuis ViaTrajectoire. Alerte si un dossier est inactif depuis X jours.</div>
         <div class="ba-item good"><span class="ba-item-icon">📈</span>Tableau de bord en temps réel dès l'ouverture. Indicateurs ANAP pré-calculés automatiquement. Export PDF propre en 1 clic.</div>
@@ -1140,472 +609,286 @@ section { padding: 100px 80px; }
   </div>
 </section>
 
+<!-- ══ MODULES ══════════════════════════════════════════ -->
 <section class="modules">
   <div class="section-eyebrow">L'architecture fonctionnelle</div>
-  <h2 class="section-title">6 modules. Un seul outil.<br>Tout connecté.</h2>
+  <h2 class="section-title">8 modules. Un seul outil.<br>Tout connecté.</h2>
   <p class="section-sub">Chaque module génère automatiquement les actions du suivant. Saisir une fois, voir partout.</p>
-
   <div class="modules-grid">
-    <div class="module-card reveal" style="transition-delay:.0s">
+
+    <!-- 00 — Poste de commande -->
+    <div class="module-card reveal">
       <div class="module-header" style="background:linear-gradient(135deg,#1A3C6E,#2E5FA3)">
         <div class="module-num">00</div>
-        <div>
-          <div class="module-name">Poste de commande</div>
-          <div class="module-tag">Vision globale · Alertes · Priorités</div>
-        </div>
+        <div><div class="module-name">Poste de commande</div><div class="module-tag">Vision globale · Alertes · Priorités</div></div>
       </div>
       <div class="module-mockup">
-        <div class="mm-bar" style="background:#1A3C6E">
-          <div class="mm-dot" style="background:#FF5F57"></div>
-          <div class="mm-dot" style="background:#FFBD2E"></div>
-          <div class="mm-dot" style="background:#28CA41"></div>
-        </div>
+        <div class="mm-bar" style="background:#1A3C6E"><div class="mm-dot" style="background:#FF5F57"></div><div class="mm-dot" style="background:#FFBD2E"></div><div class="mm-dot" style="background:#28CA41"></div></div>
         <div class="mm-content">
           <div class="kpi-row" style="gap:5px;margin-bottom:8px">
             <div class="kpi-card"><div class="kpi-val green" style="font-size:16px">18</div><div class="kpi-lbl">Actifs</div></div>
             <div class="kpi-card"><div class="kpi-val orange" style="font-size:16px">3</div><div class="kpi-lbl">En cours</div></div>
             <div class="kpi-card"><div class="kpi-val red" style="font-size:16px">2</div><div class="kpi-lbl">Alertes</div></div>
           </div>
-          <div class="alert-item urgent" style="margin-bottom:4px;font-size:10px">
-            <div class="alert-dot"></div>
-            <div class="alert-text" style="font-size:10px">Mme Dupont — Dossier inactif 5j</div>
-          </div>
-          <div class="alert-item ok" style="font-size:10px">
-            <div class="alert-dot"></div>
-            <div class="alert-text" style="font-size:10px">Contrat signé ✓ — M. Bernard</div>
-          </div>
+          <div class="alert-item urgent" style="margin-bottom:4px"><div class="alert-dot"></div><div class="alert-text" style="font-size:10px">Mme Dupont — Dossier inactif 5j</div></div>
+          <div class="alert-item ok"><div class="alert-dot"></div><div class="alert-text" style="font-size:10px">Contrat signé ✓ — M. Bernard</div></div>
         </div>
       </div>
       <div class="module-body">
-        <p class="module-desc">Votre porte d'entrée unique. En 2 secondes, vous savez ce qui est urgent, en retard, et ce qui avance. Aucun dossier ne passe entre les mailles.</p>
+        <p class="module-desc">Votre porte d'entrée unique. En 2 secondes, vous savez ce qui est urgent, en retard, et ce qui avance.</p>
         <div class="module-kpi">
-          <div class="mkpi"><div class="mkpi-val" style="color:var(--teal)">−50%</div><div class="mkpi-lbl">Temps de détection des blocages</div></div>
+          <div class="mkpi"><div class="mkpi-val" style="color:var(--teal)">−50%</div><div class="mkpi-lbl">Détection blocages</div></div>
           <div class="mkpi"><div class="mkpi-val" style="color:var(--navy)">100%</div><div class="mkpi-lbl">Visibilité temps réel</div></div>
         </div>
+        <button class="btn-discover" onclick="openModal('modal-00')">Découvrir ce module →</button>
       </div>
     </div>
 
+    <!-- 01 — Parcours & Admissions -->
     <div class="module-card reveal" style="transition-delay:.1s">
       <div class="module-header" style="background:linear-gradient(135deg,#2E5FA3,#1A7DC4)">
         <div class="module-num">01</div>
-        <div>
-          <div class="module-name">Parcours & Admissions</div>
-          <div class="module-tag">Pipeline · Matching · Contrats auto</div>
-        </div>
+        <div><div class="module-name">Parcours & Admissions</div><div class="module-tag">Pipeline · Matching · Contrats auto</div></div>
       </div>
       <div class="module-mockup">
-        <div class="mm-bar" style="background:#2E5FA3">
-          <div class="mm-dot" style="background:#FF5F57"></div>
-          <div class="mm-dot" style="background:#FFBD2E"></div>
-          <div class="mm-dot" style="background:#28CA41"></div>
-        </div>
+        <div class="mm-bar" style="background:#2E5FA3"><div class="mm-dot" style="background:#FF5F57"></div><div class="mm-dot" style="background:#FFBD2E"></div><div class="mm-dot" style="background:#28CA41"></div></div>
         <div class="mm-content">
           <div class="kanban">
-            <div class="kanban-col">
-              <div class="kanban-label">Demande</div>
-              <div class="kanban-card"><div class="kanban-card-name">Mme Leclerc</div><div class="kanban-card-sub">GIR 3 · Urgence</div><div class="kanban-card-dot" style="background:#FC8181"></div></div>
-              <div class="kanban-card"><div class="kanban-card-name">M. Petit</div><div class="kanban-card-sub">GIR 4 · DOM</div></div>
-            </div>
-            <div class="kanban-col">
-              <div class="kanban-label">Qualif.</div>
-              <div class="kanban-card"><div class="kanban-card-name">Mme Blanc</div><div class="kanban-card-sub">Matching OK</div><div class="kanban-card-dot" style="background:#F59E0B"></div></div>
-            </div>
-            <div class="kanban-col">
-              <div class="kanban-label">Admis ✓</div>
-              <div class="kanban-card"><div class="kanban-card-name">M. Bernard</div><div class="kanban-card-sub">Signé ✓</div><div class="kanban-card-dot" style="background:#4ECDC4"></div></div>
-            </div>
+            <div class="kanban-col"><div class="kanban-label">Demande</div><div class="kanban-card"><div class="kanban-card-name">Mme Leclerc</div><div class="kanban-card-sub">GIR 3 · Urgence</div><div class="kanban-card-dot" style="background:#FC8181"></div></div></div>
+            <div class="kanban-col"><div class="kanban-label">Qualif.</div><div class="kanban-card"><div class="kanban-card-name">Mme Blanc</div><div class="kanban-card-sub">Matching OK</div><div class="kanban-card-dot" style="background:#F59E0B"></div></div></div>
+            <div class="kanban-col"><div class="kanban-label">Admis ✓</div><div class="kanban-card"><div class="kanban-card-name">M. Bernard</div><div class="kanban-card-sub">Signé ✓</div><div class="kanban-card-dot" style="background:#4ECDC4"></div></div></div>
           </div>
         </div>
       </div>
       <div class="module-body">
-        <p class="module-desc">Du premier appel au contrat signé. Import ViaTrajectoire automatique, pipeline kanban, génération de contrat PDF et signature électronique en 1 clic.</p>
+        <p class="module-desc">Du premier appel au contrat signé. Import ViaTrajectoire automatique, pipeline kanban, signature électronique en 1 clic.</p>
         <div class="module-kpi">
           <div class="mkpi"><div class="mkpi-val" style="color:var(--teal)">−30%</div><div class="mkpi-lbl">Délai de traitement</div></div>
           <div class="mkpi"><div class="mkpi-val" style="color:var(--navy)">+5 pts</div><div class="mkpi-lbl">Taux d'occupation</div></div>
         </div>
+        <button class="btn-discover" onclick="openModal('modal-01')">Découvrir ce module →</button>
       </div>
     </div>
 
+    <!-- 02 — Partenaires & Territoire -->
     <div class="module-card reveal" style="transition-delay:.2s">
       <div class="module-header" style="background:linear-gradient(135deg,#0E7C7B,#0A9E8E)">
         <div class="module-num">02</div>
-        <div>
-          <div class="module-name">Partenaires & Territoire</div>
-          <div class="module-tag">CRM · Cartographie · Roadmap partenariale</div>
-        </div>
+        <div><div class="module-name">Partenaires & Territoire</div><div class="module-tag">CRM · Cartographie · Roadmap partenariale</div></div>
       </div>
       <div class="module-mockup">
-        <div class="mm-bar" style="background:#0E7C7B">
-          <div class="mm-dot" style="background:#FF5F57"></div>
-          <div class="mm-dot" style="background:#FFBD2E"></div>
-          <div class="mm-dot" style="background:#28CA41"></div>
-        </div>
+        <div class="mm-bar" style="background:#0E7C7B"><div class="mm-dot" style="background:#FF5F57"></div><div class="mm-dot" style="background:#FFBD2E"></div><div class="mm-dot" style="background:#28CA41"></div></div>
         <div class="mm-content">
           <div class="partner-list">
-            <div class="partner-row">
-              <div class="partner-status" style="background:#4ECDC4"></div>
-              <div class="partner-name">CH Saint-Antoine</div>
-              <div class="partner-badge actif">Actif</div>
-              <div class="partner-flux">12 doss/mois</div>
-            </div>
-            <div class="partner-row">
-              <div class="partner-status" style="background:#F59E0B"></div>
-              <div class="partner-name">CCAS Paris 15e</div>
-              <div class="partner-badge relance">Relance J+3</div>
-              <div class="partner-flux">4 doss/mois</div>
-            </div>
-            <div class="partner-row">
-              <div class="partner-status" style="background:#6366F1"></div>
-              <div class="partner-name">HAD Île-de-France</div>
-              <div class="partner-badge prospect">Conventionner</div>
-              <div class="partner-flux">—</div>
-            </div>
+            <div class="partner-row"><div class="partner-status" style="background:#4ECDC4"></div><div class="partner-name">CH Saint-Antoine</div><div class="partner-badge actif">Actif</div><div class="partner-flux">12 doss/mois</div></div>
+            <div class="partner-row"><div class="partner-status" style="background:#F59E0B"></div><div class="partner-name">CCAS Paris 15e</div><div class="partner-badge relance">Relance J+3</div><div class="partner-flux">4 doss/mois</div></div>
+            <div class="partner-row"><div class="partner-status" style="background:#6366F1"></div><div class="partner-name">HAD Île-de-France</div><div class="partner-badge prospect">Conventionner</div><div class="partner-flux">—</div></div>
           </div>
         </div>
       </div>
       <div class="module-body">
-        <p class="module-desc">Votre réseau informel devient un actif piloté. Statut de chaque partenaire, relances automatiques, bilan mensuel généré automatiquement pour chaque prescripteur.</p>
+        <p class="module-desc">Votre réseau informel devient un actif piloté. Statut de chaque partenaire, relances auto, bilan mensuel généré pour chaque prescripteur.</p>
         <div class="module-kpi">
           <div class="mkpi"><div class="mkpi-val" style="color:var(--teal)">+25%</div><div class="mkpi-lbl">Partenaires actifs</div></div>
-          <div class="mkpi"><div class="mkpi-val" style="color:var(--navy)">90%</div><div class="mkpi-lbl">Dossiers tracés par source</div></div>
+          <div class="mkpi"><div class="mkpi-val" style="color:var(--navy)">90%</div><div class="mkpi-lbl">Dossiers tracés</div></div>
         </div>
+        <button class="btn-discover" onclick="openModal('modal-02')">Découvrir ce module →</button>
       </div>
     </div>
 
+    <!-- 03 — Familles & Aidants -->
     <div class="module-card reveal" style="transition-delay:.1s">
       <div class="module-header" style="background:linear-gradient(135deg,#5B2C8D,#7C3AED)">
         <div class="module-num">03</div>
-        <div>
-          <div class="module-name">Familles & Aidants</div>
-          <div class="module-tag">Messagerie · Documents · Satisfaction</div>
-        </div>
+        <div><div class="module-name">Familles & Aidants</div><div class="module-tag">Messagerie · Documents · Satisfaction</div></div>
       </div>
       <div class="module-mockup">
-        <div class="mm-bar" style="background:#5B2C8D">
-          <div class="mm-dot" style="background:#FF5F57"></div>
-          <div class="mm-dot" style="background:#FFBD2E"></div>
-          <div class="mm-dot" style="background:#28CA41"></div>
-        </div>
+        <div class="mm-bar" style="background:#5B2C8D"><div class="mm-dot" style="background:#FF5F57"></div><div class="mm-dot" style="background:#FFBD2E"></div><div class="mm-dot" style="background:#28CA41"></div></div>
         <div class="mm-content">
           <div class="chat-feed">
-            <div class="chat-bubble in">"Où en est le dossier de ma mère ?" <span class="chat-tag">Famille</span></div>
-            <div class="chat-bubble out">Admission confirmée. Contrat envoyé pour signature. ✓</div>
+            <div class="chat-bubble in">"Où en est le dossier de ma mère ?"</div>
+            <div class="chat-bubble out">Admission confirmée. Contrat envoyé ✓</div>
             <div class="chat-bubble in">"Peut-on avoir les documents MDPH ?"</div>
-            <div style="font-size:10px;color:var(--grey);text-align:right;margin-top:2px">⚙️ Relance auto J+2 programmée</div>
+            <div style="font-size:10px;color:rgba(255,255,255,.5);text-align:right;margin-top:2px">⚙️ Relance auto J+2 programmée</div>
           </div>
         </div>
       </div>
       <div class="module-body">
-        <p class="module-desc">Tous les échanges avec les proches en un endroit, partagés entre collègues. Relances automatiques, signature électronique, satisfaction mesurée en continu.</p>
+        <p class="module-desc">Tous les échanges avec les proches en un endroit. Relances automatiques, signature électronique, satisfaction mesurée en continu.</p>
         <div class="module-kpi">
           <div class="mkpi"><div class="mkpi-val" style="color:var(--teal)">−35%</div><div class="mkpi-lbl">Appels répétitifs</div></div>
           <div class="mkpi"><div class="mkpi-val" style="color:var(--navy)">+20 pts</div><div class="mkpi-lbl">Satisfaction famille</div></div>
         </div>
+        <button class="btn-discover" onclick="openModal('modal-03')">Découvrir ce module →</button>
       </div>
     </div>
 
+    <!-- 04 — Pilotage -->
     <div class="module-card reveal" style="transition-delay:.2s">
       <div class="module-header" style="background:linear-gradient(135deg,#1A3C6E,#0E7C7B)">
         <div class="module-num">04</div>
-        <div>
-          <div class="module-name">Pilotage & Indicateurs</div>
-          <div class="module-tag">TDB ANAP · Alertes · Reporting auto</div>
-        </div>
+        <div><div class="module-name">Pilotage & Indicateurs</div><div class="module-tag">TDB ANAP · Alertes · Reporting auto</div></div>
       </div>
       <div class="module-mockup">
-        <div class="mm-bar" style="background:#1A3C6E">
-          <div class="mm-dot" style="background:#FF5F57"></div>
-          <div class="mm-dot" style="background:#FFBD2E"></div>
-          <div class="mm-dot" style="background:#28CA41"></div>
-        </div>
+        <div class="mm-bar" style="background:#1A3C6E"><div class="mm-dot" style="background:#FF5F57"></div><div class="mm-dot" style="background:#FFBD2E"></div><div class="mm-dot" style="background:#28CA41"></div></div>
         <div class="mm-content">
           <div class="gauge-row">
-            <div class="gauge">
-              <div class="gauge-circle g1">87%</div>
-              <div class="gauge-lbl">Taux<br>occupation</div>
-            </div>
-            <div class="gauge">
-              <div class="gauge-circle g2">14j</div>
-              <div class="gauge-lbl">Délai moyen<br>admission</div>
-            </div>
-            <div class="gauge">
-              <div class="gauge-circle g3">+12%</div>
-              <div class="gauge-lbl">Flux<br>partenaires</div>
-            </div>
+            <div class="gauge"><div class="gauge-circle g1">87%</div><div class="gauge-lbl">Taux<br>occupation</div></div>
+            <div class="gauge"><div class="gauge-circle g2">14j</div><div class="gauge-lbl">Délai moyen<br>admission</div></div>
+            <div class="gauge"><div class="gauge-circle g3">+12%</div><div class="gauge-lbl">Flux<br>partenaires</div></div>
           </div>
-          <div style="margin-top:10px;font-size:10px;color:var(--grey);text-align:center;background:#F0FDF4;border-radius:6px;padding:6px;">
-            ✅ Indicateurs ANAP pré-calculés · Export PDF prêt
-          </div>
+          <div style="margin-top:10px;font-size:10px;color:#166534;text-align:center;background:#F0FDF4;border-radius:6px;padding:6px;">✅ Indicateurs ANAP pré-calculés · Export PDF prêt</div>
         </div>
       </div>
       <div class="module-body">
-        <p class="module-desc">Les indicateurs se construisent automatiquement. TDB ANAP/ARS pré-calculé. Détection des blocages avant qu'ils deviennent des problèmes. Export PDF en 1 clic.</p>
+        <p class="module-desc">Les indicateurs se construisent automatiquement. TDB ANAP/ARS pré-calculé. Détection des blocages avant qu'ils deviennent des problèmes.</p>
         <div class="module-kpi">
           <div class="mkpi"><div class="mkpi-val" style="color:var(--teal)">−50%</div><div class="mkpi-lbl">Temps de reporting</div></div>
           <div class="mkpi"><div class="mkpi-val" style="color:var(--navy)">Temps réel</div><div class="mkpi-lbl">Détection blocages</div></div>
         </div>
+        <button class="btn-discover" onclick="openModal('modal-04')">Découvrir ce module →</button>
       </div>
     </div>
 
+    <!-- 05 — Qualité HAS -->
     <div class="module-card reveal" style="transition-delay:.3s">
       <div class="module-header" style="background:linear-gradient(135deg,#A0264A,#C0392B)">
         <div class="module-num">05</div>
-        <div>
-          <div class="module-name">Qualité & Conformité HAS</div>
-          <div class="module-tag">18 critères · EI mobile · Preuves auto</div>
-        </div>
+        <div><div class="module-name">Qualité & Conformité HAS</div><div class="module-tag">18 critères · EI mobile · Preuves auto</div></div>
       </div>
       <div class="module-mockup">
-        <div class="mm-bar" style="background:#A0264A">
-          <div class="mm-dot" style="background:#FF5F57"></div>
-          <div class="mm-dot" style="background:#FFBD2E"></div>
-          <div class="mm-dot" style="background:#28CA41"></div>
-        </div>
+        <div class="mm-bar" style="background:#A0264A"><div class="mm-dot" style="background:#FF5F57"></div><div class="mm-dot" style="background:#FFBD2E"></div><div class="mm-dot" style="background:#28CA41"></div></div>
         <div class="mm-content">
-          <div style="font-size:10px;color:var(--grey);margin-bottom:6px;font-weight:600;">18 critères HAS — couverture en temps réel</div>
+          <div style="font-size:10px;color:rgba(255,255,255,.7);margin-bottom:6px;font-weight:600;">18 critères HAS — couverture temps réel</div>
           <div class="has-grid">
             <div class="has-item ok">3.12.1<div class="has-label">Plaintes ✓</div></div>
             <div class="has-item ok">3.13.1<div class="has-label">EI ✓</div></div>
             <div class="has-item ok">3.11.1<div class="has-label">Maltraité ✓</div></div>
             <div class="has-item ok">2.2.7<div class="has-label">RGPD ✓</div></div>
             <div class="has-item ok">3.14.1<div class="has-label">Crise ✓</div></div>
-            <div class="has-item ok" style="background:#DCFCE7;color:#166534">+13 ✓<div class="has-label">Couverts</div></div>
+            <div class="has-item ok">+13 ✓<div class="has-label">Couverts</div></div>
           </div>
         </div>
       </div>
       <div class="module-body">
-        <p class="module-desc">La conformité HAS se construit automatiquement par l'usage quotidien. Déclaration EI depuis smartphone. Registres exportables en 1 clic. Fini les nuits avant la visite.</p>
+        <p class="module-desc">La conformité HAS se construit par l'usage quotidien. Déclaration EI depuis smartphone. Registres exportables en 1 clic.</p>
         <div class="module-kpi">
           <div class="mkpi"><div class="mkpi-val" style="color:var(--teal)">100%</div><div class="mkpi-lbl">Critères HAS couverts</div></div>
           <div class="mkpi"><div class="mkpi-val" style="color:var(--navy)">−60%</div><div class="mkpi-lbl">Préparation évaluation</div></div>
         </div>
+        <button class="btn-discover" onclick="openModal('modal-05')">Découvrir ce module →</button>
       </div>
     </div>
 
-    <div class="module-card reveal" style="transition-delay:.0s">
+    <!-- 06 — Vie Sociale -->
+    <div class="module-card reveal">
       <div class="module-header" style="background:linear-gradient(135deg,#8B6914,#B8860B)">
         <div class="module-num">06</div>
-        <div>
-          <div class="module-name">Vie Sociale & Animations</div>
-          <div class="module-tag">Planning · Présences · Indicateurs HAS</div>
-        </div>
+        <div><div class="module-name">Vie Sociale & Animations</div><div class="module-tag">Planning · Présences · Indicateurs HAS</div></div>
       </div>
       <div class="module-mockup">
-        <div class="mm-bar" style="background:#8B6914">
-          <div class="mm-dot" style="background:#FF5F57"></div>
-          <div class="mm-dot" style="background:#FFBD2E"></div>
-          <div class="mm-dot" style="background:#28CA41"></div>
-        </div>
+        <div class="mm-bar" style="background:#8B6914"><div class="mm-dot" style="background:#FF5F57"></div><div class="mm-dot" style="background:#FFBD2E"></div><div class="mm-dot" style="background:#28CA41"></div></div>
         <div class="mm-content">
           <div style="display:flex;flex-direction:column;gap:5px;">
-            <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.08);border-radius:6px;padding:6px 10px;">
-              <span style="font-size:10px;color:#fff;font-weight:600;">🎨 Atelier peinture</span>
-              <span style="font-size:9px;background:rgba(78,205,196,.25);color:#4ECDC4;border-radius:100px;padding:2px 8px;font-weight:600;">14h00</span>
-            </div>
-            <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.08);border-radius:6px;padding:6px 10px;">
-              <span style="font-size:10px;color:#fff;font-weight:600;">🎵 Musicothérapie</span>
-              <span style="font-size:9px;background:rgba(245,158,11,.25);color:#F59E0B;border-radius:100px;padding:2px 8px;font-weight:600;">16h00</span>
-            </div>
-            <div style="margin-top:4px;background:rgba(255,255,255,.05);border-radius:6px;padding:7px 10px;">
-              <div style="font-size:9px;color:rgba(255,255,255,.45);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em;">Participation ce mois</div>
-              <div style="display:flex;align-items:center;gap:6px;">
-                <div style="flex:1;height:5px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden;">
-                  <div style="width:74%;height:100%;background:#4ECDC4;border-radius:3px;"></div>
-                </div>
-                <span style="font-size:10px;color:#4ECDC4;font-weight:700;">74%</span>
-              </div>
-            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.08);border-radius:6px;padding:6px 10px;"><span style="font-size:10px;color:#fff;font-weight:600;">🎨 Atelier peinture</span><span style="font-size:9px;background:rgba(78,205,196,.25);color:#4ECDC4;border-radius:100px;padding:2px 8px;font-weight:600;">14h00</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.08);border-radius:6px;padding:6px 10px;"><span style="font-size:10px;color:#fff;font-weight:600;">🎵 Musicothérapie</span><span style="font-size:9px;background:rgba(245,158,11,.25);color:#F59E0B;border-radius:100px;padding:2px 8px;font-weight:600;">16h00</span></div>
+            <div style="background:rgba(255,255,255,.05);border-radius:6px;padding:7px 10px;"><div style="font-size:9px;color:rgba(255,255,255,.45);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em;">Participation ce mois</div><div style="display:flex;align-items:center;gap:6px;"><div style="flex:1;height:5px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden;"><div style="width:74%;height:100%;background:#4ECDC4;border-radius:3px;"></div></div><span style="font-size:10px;color:#4ECDC4;font-weight:700;">74%</span></div></div>
           </div>
         </div>
       </div>
       <div class="module-body">
-        <p class="module-desc">Planning d'animation partagé, suivi de participation individuelle, recommandations selon les profils. Indicateurs vie sociale exportables pour les évaluations HAS et dialogues de gestion.</p>
+        <p class="module-desc">Planning d'animation partagé, suivi de participation individuelle, recommandations selon les profils. Indicateurs vie sociale pour les évaluations HAS.</p>
         <div class="module-kpi">
           <div class="mkpi"><div class="mkpi-val" style="color:var(--teal)">+20%</div><div class="mkpi-lbl">Taux de participation</div></div>
-          <div class="mkpi"><div class="mkpi-val" style="color:var(--navy)">−30%</div><div class="mkpi-lbl">Temps de coordination</div></div>
+          <div class="mkpi"><div class="mkpi-val" style="color:var(--navy)">−30%</div><div class="mkpi-lbl">Temps coordination</div></div>
         </div>
+        <button class="btn-discover" onclick="openModal('modal-06')">Découvrir ce module →</button>
       </div>
     </div>
 
+    <!-- 07 — Portail Famille -->
     <div class="module-card reveal" style="transition-delay:.1s">
       <div class="module-header" style="background:linear-gradient(135deg,#2E7D32,#388E3C)">
         <div class="module-num">07</div>
-        <div>
-          <div class="module-name">Portail Famille</div>
-          <div class="module-tag">Messagerie sécurisée · Documents · Satisfaction</div>
-        </div>
+        <div><div class="module-name">Portail Famille</div><div class="module-tag">Messagerie sécurisée · Documents · Satisfaction</div></div>
       </div>
       <div class="module-mockup">
-        <div class="mm-bar" style="background:#2E7D32">
-          <div class="mm-dot" style="background:#FF5F57"></div>
-          <div class="mm-dot" style="background:#FFBD2E"></div>
-          <div class="mm-dot" style="background:#28CA41"></div>
-        </div>
+        <div class="mm-bar" style="background:#2E7D32"><div class="mm-dot" style="background:#FF5F57"></div><div class="mm-dot" style="background:#FFBD2E"></div><div class="mm-dot" style="background:#28CA41"></div></div>
         <div class="mm-content">
           <div style="display:flex;flex-direction:column;gap:5px;">
             <div style="background:rgba(255,255,255,.06);border-radius:8px;padding:8px 10px;">
               <div style="font-size:9px;color:rgba(255,255,255,.45);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em;">Espace famille — Mme Dupont</div>
               <div style="display:flex;flex-direction:column;gap:4px;">
-                <div style="background:rgba(78,205,196,.15);border-radius:6px;padding:5px 8px;font-size:10px;color:#4ECDC4;align-self:flex-start;border-bottom-left-radius:2px;">"Comment se passe l'adaptation ?"</div>
-                <div style="background:rgba(255,255,255,.1);border-radius:6px;padding:5px 8px;font-size:10px;color:rgba(255,255,255,.85);align-self:flex-end;border-bottom-right-radius:2px;">Très bien, elle participe aux activités ✓</div>
+                <div style="background:rgba(78,205,196,.15);border-radius:6px;padding:5px 8px;font-size:10px;color:#4ECDC4;align-self:flex-start;">"Comment se passe l'adaptation ?"</div>
+                <div style="background:rgba(255,255,255,.1);border-radius:6px;padding:5px 8px;font-size:10px;color:rgba(255,255,255,.85);align-self:flex-end;">Très bien, elle participe aux activités ✓</div>
               </div>
             </div>
             <div style="display:flex;gap:5px;">
-              <div style="flex:1;background:rgba(255,255,255,.06);border-radius:6px;padding:6px 8px;text-align:center;">
-                <div style="font-size:14px;font-weight:700;color:#4ECDC4;">3</div>
-                <div style="font-size:9px;color:rgba(255,255,255,.45);">Docs signés</div>
-              </div>
-              <div style="flex:1;background:rgba(255,255,255,.06);border-radius:6px;padding:6px 8px;text-align:center;">
-                <div style="font-size:14px;font-weight:700;color:#F59E0B;">⭐ 4.8</div>
-                <div style="font-size:9px;color:rgba(255,255,255,.45);">Satisfaction</div>
-              </div>
-              <div style="flex:1;background:rgba(255,255,255,.06);border-radius:6px;padding:6px 8px;text-align:center;">
-                <div style="font-size:14px;font-weight:700;color:#FC8181;">2</div>
-                <div style="font-size:9px;color:rgba(255,255,255,.45);">En attente</div>
-              </div>
+              <div style="flex:1;background:rgba(255,255,255,.06);border-radius:6px;padding:6px 8px;text-align:center;"><div style="font-size:14px;font-weight:700;color:#4ECDC4;">3</div><div style="font-size:9px;color:rgba(255,255,255,.45);">Docs signés</div></div>
+              <div style="flex:1;background:rgba(255,255,255,.06);border-radius:6px;padding:6px 8px;text-align:center;"><div style="font-size:14px;font-weight:700;color:#F59E0B;">⭐ 4.8</div><div style="font-size:9px;color:rgba(255,255,255,.45);">Satisfaction</div></div>
+              <div style="flex:1;background:rgba(255,255,255,.06);border-radius:6px;padding:6px 8px;text-align:center;"><div style="font-size:14px;font-weight:700;color:#FC8181;">2</div><div style="font-size:9px;color:rgba(255,255,255,.45);">En attente</div></div>
             </div>
           </div>
         </div>
       </div>
       <div class="module-body">
-        <p class="module-desc">Espace externe sécurisé accessible par les proches depuis smartphone. Messagerie encadrée, documents, agenda, satisfaction en continu. Les familles trouvent l'information — vos équipes arrêtent de rappeler.</p>
+        <p class="module-desc">Espace externe sécurisé pour les proches. Messagerie encadrée, documents, agenda, satisfaction en continu. Les familles trouvent l'info seules.</p>
         <div class="module-kpi">
           <div class="mkpi"><div class="mkpi-val" style="color:var(--teal)">−35%</div><div class="mkpi-lbl">Appels répétitifs</div></div>
           <div class="mkpi"><div class="mkpi-val" style="color:var(--navy)">×3</div><div class="mkpi-lbl">Réponses satisfaction</div></div>
         </div>
+        <button class="btn-discover" onclick="openModal('modal-07')">Découvrir ce module →</button>
       </div>
     </div>
+
   </div>
 </section>
 
+<!-- ══ JOURNÉE ══════════════════════════════════════════ -->
 <section class="journee">
   <div class="section-eyebrow">Une journée avec NexiCare</div>
   <h2 class="section-title">Du matin à la fin de journée,<br>tout est déjà fait ou planifié.</h2>
   <p class="section-sub">Voici la journée type d'une coordinatrice SAD de 80 bénéficiaires — après 3 mois avec NexiCare.</p>
-
   <div class="timeline reveal">
-    <div class="tl-item">
-      <div class="tl-time">08h00</div>
-      <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-emoji">⚡</div>
-        <div class="tl-action">Ouverture NexiCare</div>
-        <div class="tl-detail">3 alertes urgentes visibles. Priorités de la journée claires en 10 secondes.</div>
-        <div class="tl-badge auto">Automatique</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-time">09h15</div>
-      <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-emoji">📋</div>
-        <div class="tl-action">Admission Mme Dupont</div>
-        <div class="tl-detail">Dossier ViaTrajectoire importé. Contrat généré. Signature envoyée par mail.</div>
-        <div class="tl-badge gain">Gagné : 45 min</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-time">11h00</div>
-      <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-emoji">🏥</div>
-        <div class="tl-action">Appel CH Saint-Antoine</div>
-        <div class="tl-detail">Bilan mensuel auto envoyé la veille. L'infirmière est informée. Échange de 10 min.</div>
-        <div class="tl-badge auto">Bilan auto</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-time">14h30</div>
-      <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-emoji">📊</div>
-        <div class="tl-action">Réunion direction</div>
-        <div class="tl-detail">Export PDF indicateurs en 1 clic. Données fraîches. Aucune préparation manuelle.</div>
-        <div class="tl-badge gain">Gagné : 2h</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-time">17h00</div>
-      <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-emoji">✅</div>
-        <div class="tl-action">Fin de journée sereine</div>
-        <div class="tl-detail">Relances programmées. Dossiers à jour. Aucune action oubliée. NexiCare veille.</div>
-        <div class="tl-badge auto">Zéro oubli</div>
-      </div>
-    </div>
+    <div class="tl-item"><div class="tl-time">08h00</div><div class="tl-dot"></div><div class="tl-card"><div class="tl-emoji">⚡</div><div class="tl-action">Ouverture NexiCare</div><div class="tl-detail">3 alertes urgentes visibles. Priorités de la journée claires en 10 secondes.</div><div class="tl-badge auto">Automatique</div></div></div>
+    <div class="tl-item"><div class="tl-time">09h15</div><div class="tl-dot"></div><div class="tl-card"><div class="tl-emoji">📋</div><div class="tl-action">Admission Mme Dupont</div><div class="tl-detail">Dossier ViaTrajectoire importé. Contrat généré. Signature envoyée par mail.</div><div class="tl-badge gain">Gagné : 45 min</div></div></div>
+    <div class="tl-item"><div class="tl-time">11h00</div><div class="tl-dot"></div><div class="tl-card"><div class="tl-emoji">🏥</div><div class="tl-action">Appel CH Saint-Antoine</div><div class="tl-detail">Bilan mensuel auto envoyé la veille. L'infirmière est informée. Échange de 10 min.</div><div class="tl-badge auto">Bilan auto</div></div></div>
+    <div class="tl-item"><div class="tl-time">14h30</div><div class="tl-dot"></div><div class="tl-card"><div class="tl-emoji">📊</div><div class="tl-action">Réunion direction</div><div class="tl-detail">Export PDF indicateurs en 1 clic. Données fraîches. Aucune préparation manuelle.</div><div class="tl-badge gain">Gagné : 2h</div></div></div>
+    <div class="tl-item"><div class="tl-time">17h00</div><div class="tl-dot"></div><div class="tl-card"><div class="tl-emoji">✅</div><div class="tl-action">Fin de journée sereine</div><div class="tl-detail">Relances programmées. Dossiers à jour. Aucune action oubliée. NexiCare veille.</div><div class="tl-badge auto">Zéro oubli</div></div></div>
   </div>
 </section>
 
+<!-- ══ ROI / PRICING ════════════════════════════════════ -->
 <section class="roi">
   <div class="section-eyebrow">Modèle économique</div>
   <h2 class="section-title">Un abonnement simple.<br>Tous les modules. Tous les utilisateurs.</h2>
   <p class="section-sub">Pas de facturation par utilisateur. Pas de surprise. Un tarif par établissement selon sa taille — et c'est tout.</p>
-
   <div class="roi-grid reveal">
     <div class="roi-cards">
-      <div class="roi-card">
-        <div class="roi-icon" style="background:#EFF6FF">💡</div>
-        <div>
-          <div class="roi-card-title">Sans limite d'utilisateurs</div>
-          <div class="roi-card-desc">Directeur, coordinatrice, animatrice, responsable qualité — tout le monde accède sans surcoût. Un seul tarif, toute l'équipe.</div>
-          <div class="roi-card-num" style="color:var(--teal)">vs 100–160 €/user/mois chez les CRM génériques</div>
-        </div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-icon" style="background:#F0FDF4">🔄</div>
-        <div>
-          <div class="roi-card-title">Coexiste avec vos outils actuels</div>
-          <div class="roi-card-desc">Famileo, Ageeval, Anissen… on connaît, on respecte, on sait coexister. NexiCare s'adapte à votre réalité — on commence par votre besoin prioritaire.</div>
-        </div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-icon" style="background:#FFF7ED">🚀</div>
-        <div>
-          <div class="roi-card-title">Pionniers — offre co-construction</div>
-          <div class="roi-card-desc">Les 15 à 20 premières structures bénéficient d'un tarif bloqué 3 ans et d'une place centrale dans la roadmap produit.</div>
-          <div class="roi-card-num" style="color:var(--orange)">Tarif Pack Complet bloqué</div>
-        </div>
-      </div>
+      <div class="roi-card"><div class="roi-icon" style="background:#EFF6FF">💡</div><div><div class="roi-card-title">Sans limite d'utilisateurs</div><div class="roi-card-desc">Directeur, coordinatrice, animatrice, responsable qualité — tout le monde accède sans surcoût.</div><div class="roi-card-num" style="color:var(--teal)">vs 100–160 €/user/mois chez les CRM génériques</div></div></div>
+      <div class="roi-card"><div class="roi-icon" style="background:#F0FDF4">🔄</div><div><div class="roi-card-title">Coexiste avec vos outils actuels</div><div class="roi-card-desc">Famileo, Ageeval, Anissen… on connaît, on respecte, on sait coexister. NexiCare s'adapte à votre réalité.</div></div></div>
+      <div class="roi-card"><div class="roi-icon" style="background:#FFF7ED">🚀</div><div><div class="roi-card-title">Pionniers — offre co-construction</div><div class="roi-card-desc">Les 15 à 20 premières structures bénéficient d'un tarif bloqué 3 ans et d'une place dans la roadmap produit.</div><div class="roi-card-num" style="color:var(--orange)">Tarif Pack Complet bloqué</div></div></div>
     </div>
-
     <div class="pricing-box">
       <div class="pricing-eyebrow">Tarification 2026</div>
       <div class="pricing-title">Pack Complet<br>NexiCare</div>
       <div class="pricing-sub">Tous les modules · Tous les utilisateurs · Sans limite</div>
       <div class="pricing-tiers">
-        <div class="pricing-tier">
-          <div class="tier-label">≤ 50 lits / personnes accompagnées</div>
-          <div class="tier-price">379 €<span> HT/mois</span></div>
-        </div>
-        <div class="pricing-tier highlighted">
-          <div class="tier-label">51 à 80 lits — cœur de cible</div>
-          <div class="tier-price">419 €<span> HT/mois</span></div>
-        </div>
-        <div class="pricing-tier">
-          <div class="tier-label">81 à 120 lits</div>
-          <div class="tier-price">449 €<span> HT/mois</span></div>
-        </div>
-        <div class="pricing-tier">
-          <div class="tier-label">&gt; 120 lits · Groupe / multi-sites / HAD</div>
-          <div class="tier-price">479 €<span> HT/mois</span></div>
-        </div>
+        <div class="pricing-tier"><div class="tier-label">≤ 50 lits / personnes accompagnées</div><div class="tier-price">379 €<span> HT/mois</span></div></div>
+        <div class="pricing-tier highlighted"><div class="tier-label">51 à 80 lits — cœur de cible</div><div class="tier-price">419 €<span> HT/mois</span></div></div>
+        <div class="pricing-tier"><div class="tier-label">81 à 120 lits</div><div class="tier-price">449 €<span> HT/mois</span></div></div>
+        <div class="pricing-tier"><div class="tier-label">&gt; 120 lits · Groupe / multi-sites / HAD</div><div class="tier-price">479 €<span> HT/mois</span></div></div>
       </div>
-      <div class="pricing-note">
-        <strong>Brique facturation/comptabilité</strong> en roadmap V2-V3. 
-        Setup one-shot à l'onboarding. <strong>Engagement annuel</strong> — résiliable à l'échéance.
-        <br><br>
-        💡 Vos outils actuels cumulés vous coûtent probablement <strong>500 à 900 €/mois</strong> pour moins de résultat.
-      </div>
+      <div class="pricing-note"><strong>Brique facturation/comptabilité</strong> en roadmap V2-V3. Setup one-shot à l'onboarding. <strong>Engagement annuel</strong> — résiliable à l'échéance.<br><br>💡 Vos outils actuels cumulés vous coûtent probablement <strong>500 à 900 €/mois</strong> pour moins de résultat.</div>
     </div>
   </div>
 </section>
 
+<!-- ══ COEXIST ══════════════════════════════════════════ -->
 <section class="coexist reveal">
   <div class="section-eyebrow">Intégration & Coexistence</div>
   <h2 class="section-title">On ne débarque pas<br>pour tout remplacer.</h2>
   <p class="section-sub">Vous avez déjà des outils en place. On le sait, on le respecte. NexiCare entre par là où le besoin est le plus criant — et grandit avec vous.</p>
-
   <div class="tools-row">
     <div class="tool-chip"><span class="chip-icon">📸</span>Famileo</div>
     <div class="tool-plus">+</div>
@@ -1615,96 +898,443 @@ section { padding: 100px 80px; }
     <div class="tool-plus">+</div>
     <div class="tool-chip tool-nexicare"><span class="chip-icon">⚡</span>NexiCare</div>
   </div>
-
-  <p class="coexist-note">
-    <strong>Chaque structure a son histoire d'outils.</strong> 
-    NexiCare s'adapte à votre réalité — par une brique ciblée sur votre besoin prioritaire, ou par une solution complète si vous êtes prêts à aller plus loin. 
-    <strong>C'est votre choix, pas le nôtre.</strong>
-  </p>
+  <p class="coexist-note"><strong>Chaque structure a son histoire d'outils.</strong> NexiCare s'adapte à votre réalité — par une brique ciblée sur votre besoin prioritaire, ou par une solution complète si vous êtes prêts à aller plus loin. <strong>C'est votre choix, pas le nôtre.</strong></p>
 </section>
 
+<!-- ══ CTA FINAL ════════════════════════════════════════ -->
 <section class="cta-final">
   <div class="section-eyebrow">Devenez pionnier</div>
   <h2 class="section-title">Vous reconnaissez<br>votre quotidien ici ?</h2>
   <p class="section-sub">On cherche 15 à 20 structures avec lesquelles construire NexiCare. Pas 50 clients — les bons partenaires.</p>
-
   <div class="cta-row">
-    <a href="https://calendly.com/nexicare/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">
-      Discutons 30 minutes
-    </a>
-
-    <a href="https://docs.google.com/document/d/1mkjsjX6vQ9ETNagPN-Cbi4tidBQEvEo9/edit?usp=drive_link&ouid=114717049404400944409&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-      Télécharger le teaser
-    </a>
+    <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">Discutons 30 minutes</a>
+    <a href="https://docs.google.com/document/d/1mkjsjX6vQ9ETNagPN-Cbi4tidBQEvEo9/edit?usp=drive_link&ouid=114717049404400944409&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="btn-secondary">Télécharger le teaser</a>
   </div>
-
   <div class="founders-strip">
-    <div class="founder">
-      <div class="founder-avatar" style="background:var(--teal)">BM</div>
-      <div>
-        <div class="founder-name">Bertrand Mars</div>
-        <div class="founder-role">Co-fondateur · 15 ans médico-social<br>Stratégie & Développement commercial</div>
-      </div>
-    </div>
+    <div class="founder"><div class="founder-avatar" style="background:var(--teal)">BM</div><div><div class="founder-name">Bertrand Mars</div><div class="founder-role">Co-fondateur · 15 ans médico-social<br>Stratégie & Développement commercial</div></div></div>
     <div class="founder-sep"></div>
-    <div class="founder">
-      <div class="founder-avatar" style="background:var(--orange)">OL</div>
-      <div>
-        <div class="founder-name">Olivier Lefebvre</div>
-        <div class="founder-role">Co-fondateur · Directeur EHPAD<br>Intervenant ANAP · Président FédéCRT</div>
-      </div>
-    </div>
+    <div class="founder"><div class="founder-avatar" style="background:var(--orange)">OL</div><div><div class="founder-name">Olivier Lefebvre</div><div class="founder-role">Co-fondateur · Directeur EHPAD<br>Intervenant ANAP · Président FédéCRT</div></div></div>
     <div class="founder-sep"></div>
-    <div style="text-align:center">
-      <div style="font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Stream Health</div>
-      <div style="font-size:13px;color:rgba(255,255,255,.6)">bertrand@stræm.com</div>
-    </div>
+    <div style="text-align:center"><div style="font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Stream Health</div><div style="font-size:13px;color:rgba(255,255,255,.6)">bertrand@stræm.com</div></div>
   </div>
 </section>
 
-<div class="confidential">
-  NexiCare — Stream Health · Document confidentiel · Mars 2026 · Non contractuel
+<div class="confidential">NexiCare — Stream Health · Document confidentiel · Mars 2026 · Non contractuel</div>
+
+<!-- ════════════════════════════════════════════════════
+     8 MODALES
+════════════════════════════════════════════════════ -->
+
+<!-- ── MODALE 00 — Poste de commande ─────────────────── -->
+<div id="modal-00" class="modal-overlay" onclick="closeModalOutside(event, 'modal-00')">
+  <div class="modal-box">
+    <div class="modal-nav-bar">
+      <div class="modal-nav-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#28CA41"></span></div>
+      <div class="modal-tab active">⚡ Poste de commande</div>
+      <div class="modal-tab">📋 Parcours</div>
+      <div class="modal-tab">🤝 Partenaires</div>
+      <div class="modal-tab">👨‍👩‍👧 Familles</div>
+      <div class="modal-tab">📊 Pilotage</div>
+      <div class="modal-tab">✅ Qualité</div>
+    </div>
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-badge" style="background:#EEF4FC">⚡</div>
+        <div><div class="modal-title">Poste de commande</div><div class="modal-subtitle">La porte d'entrée unique — tout ce qui compte, visible en 2 secondes</div></div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-00')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-verbatim">
+        "Avant, j'ouvrais 4 outils différents le matin pour savoir où j'en étais. Maintenant j'ouvre NexiCare et en 10 secondes je sais ce qui est urgent, ce qui est en retard, et ce que mon équipe a réussi hier."
+        <div class="modal-verbatim-author">— Directrice SAD, 180 bénéficiaires</div>
+      </div>
+      <div class="modal-section-title">Ce que vous voyez dès l'ouverture</div>
+      <div class="modal-grid-2">
+        <div class="modal-feature"><div class="modal-feature-icon">🚨</div><div><div class="modal-feature-title">Actions urgentes en haut</div><div class="modal-feature-desc">Les dossiers inactifs, les relances en retard, les alertes critiques — filtrés et triés automatiquement par priorité.</div></div></div>
+        <div class="modal-feature"><div class="modal-feature-icon">📊</div><div><div class="modal-feature-title">KPIs temps réel</div><div class="modal-feature-desc">Dossiers actifs, admissions en cours, alertes en attente — mis à jour à chaque action saisie dans NexiCare.</div></div></div>
+        <div class="modal-feature"><div class="modal-feature-icon">⚡</div><div><div class="modal-feature-title">Actions en 1 clic</div><div class="modal-feature-desc">Créer, déléguer, relancer sans naviguer dans les menus. Tout depuis le poste de commande.</div></div></div>
+        <div class="modal-feature"><div class="modal-feature-icon">🔔</div><div><div class="modal-feature-title">Alertes configurables</div><div class="modal-feature-desc">Seuils définis par la direction. Notification automatique au responsable concerné. Aucun retard non détecté.</div></div></div>
+      </div>
+      <div class="modal-kpis">
+        <div class="modal-kpi"><div class="modal-kpi-val">−50%</div><div class="modal-kpi-lbl">Temps de détection des blocages</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">10 sec</div><div class="modal-kpi-lbl">Pour comprendre la situation du jour</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">100%</div><div class="modal-kpi-lbl">Visibilité temps réel sur l'activité</div></div>
+      </div>
+      <div class="modal-cta">
+        <div class="modal-cta-text">Vous voulez voir le poste de commande en action ?</div>
+        <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
+      </div>
+    </div>
+  </div>
 </div>
 
+<!-- ── MODALE 01 — Parcours & Admissions ─────────────── -->
+<div id="modal-01" class="modal-overlay" onclick="closeModalOutside(event, 'modal-01')">
+  <div class="modal-box">
+    <div class="modal-nav-bar">
+      <div class="modal-nav-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#28CA41"></span></div>
+      <div class="modal-tab">⚡ Poste de commande</div>
+      <div class="modal-tab active">📋 Parcours & Admissions</div>
+      <div class="modal-tab">🤝 Partenaires</div>
+      <div class="modal-tab">👨‍👩‍👧 Familles</div>
+      <div class="modal-tab">📊 Pilotage</div>
+      <div class="modal-tab">✅ Qualité</div>
+    </div>
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-badge" style="background:#EEF4FC">📋</div>
+        <div><div class="modal-title">Parcours & Admissions</div><div class="modal-subtitle">De la première demande au contrat signé — sans perte de dossier</div></div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-01')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-verbatim">
+        "Les demandes arrivent par mail, téléphone, ViaTrajectoire… elles atterrissent partout et nulle part. On perd des dossiers. On ne sait pas où on en est."
+        <div class="modal-verbatim-author">— Responsable de secteur SAD, 180 bénéficiaires</div>
+      </div>
+      <div class="modal-section-title">Le process en 5 étapes</div>
+      <div class="modal-steps">
+        <div class="modal-step"><div class="step-num" style="background:#2E5FA3">1</div><div class="step-content"><div class="step-title">Réception automatique</div><div class="step-desc">Import direct depuis ViaTrajectoire et formulaires web. Création automatique de la fiche Parcours. Zéro ressaisie.</div><div class="step-accord">✓ Dossier ouvert, actions générées, aucune ressaisie</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#2E5FA3">2</div><div class="step-content"><div class="step-title">Qualification du profil</div><div class="step-desc">GIR, pathologies, contraintes, niveau d'urgence. Alertes sur les champs manquants. Suggestion du niveau de priorité.</div><div class="step-accord">✓ Profil complet, prêt pour le matching</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#2E5FA3">3</div><div class="step-content"><div class="step-title">Matching capacité</div><div class="step-desc">Places disponibles compatibles affichées en temps réel. Secteur géographique, disponibilités, profil de prise en charge.</div><div class="step-accord">✓ Place identifiée ou liste d'attente activée</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#2E5FA3">4</div><div class="step-content"><div class="step-title">Décision & contrat</div><div class="step-desc">Validation en 1 clic. Contrat PDF généré automatiquement. Signature électronique intégrée. Équipe notifiée.</div><div class="step-accord">✓ Admission validée, contrat signé, équipe notifiée</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#2E5FA3">5</div><div class="step-content"><div class="step-title">Démarrage terrain</div><div class="step-desc">Checklist de démarrage automatique. Notification équipe terrain. Famille informée. Rien n'est oublié.</div><div class="step-accord">✓ Démarrage sécurisé, traçabilité complète</div></div></div>
+      </div>
+      <div class="modal-kpis">
+        <div class="modal-kpi"><div class="modal-kpi-val">−30%</div><div class="modal-kpi-lbl">Délai moyen de traitement</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">+5 pts</div><div class="modal-kpi-lbl">Taux d'occupation</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">0</div><div class="modal-kpi-lbl">Ressaisie manuelle</div></div>
+      </div>
+      <div class="modal-cta">
+        <div class="modal-cta-text">Vous voulez voir le pipeline d'admissions en action ?</div>
+        <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODALE 02 — Partenaires & Territoire ───────────── -->
+<div id="modal-02" class="modal-overlay" onclick="closeModalOutside(event, 'modal-02')">
+  <div class="modal-box">
+    <div class="modal-nav-bar">
+      <div class="modal-nav-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#28CA41"></span></div>
+      <div class="modal-tab">⚡ Poste de commande</div>
+      <div class="modal-tab">📋 Parcours</div>
+      <div class="modal-tab active">🤝 Partenaires & Territoire</div>
+      <div class="modal-tab">👨‍👩‍👧 Familles</div>
+      <div class="modal-tab">📊 Pilotage</div>
+      <div class="modal-tab">✅ Qualité</div>
+    </div>
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-badge" style="background:#E6F4F4">🤝</div>
+        <div><div class="modal-title">Partenaires & Territoire</div><div class="modal-subtitle">Votre réseau informel devient un actif piloté et mesurable</div></div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-02')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-verbatim">
+        "On a des contacts dans tous les hôpitaux du territoire. Mais honnêtement, on ne sait pas vraiment qui nous envoie des dossiers, ni si on les a relancés récemment. C'est dans les têtes."
+        <div class="modal-verbatim-author">— Directrice SAD, réseau de 35 partenaires</div>
+      </div>
+      <div class="modal-section-title">La roadmap partenariale en 4 étapes</div>
+      <div class="modal-steps">
+        <div class="modal-step"><div class="step-num" style="background:#0E7C7B">1</div><div class="step-content"><div class="step-title">Identifier & Qualifier</div><div class="step-desc">Bon interlocuteur identifié, type de structure qualifié (Hôpital, CCAS, SSIAD, SAD). Premier RDV tracé et programmé automatiquement.</div><div class="step-accord">"Le service que vous proposez est pertinent. OK pour envisager un partenariat."</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#0E7C7B">2</div><div class="step-content"><div class="step-title">Démontrer & Convaincre</div><div class="step-desc">Argumentaire adapté au type de partenaire. Rappel de relance J+15 automatique. Historique des échanges centralisé.</div><div class="step-accord">"Vos process de travail nous conviennent. Nous voyons un intérêt opérationnel."</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#0E7C7B">3</div><div class="step-content"><div class="step-title">Contractualiser</div><div class="step-desc">Convention type générée et personnalisée selon le type de partenaire. Signature électronique. Process d'orientation des dossiers activé.</div><div class="step-accord">"Je valide la convention. Nous vous solliciterons désormais."</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#0E7C7B">4</div><div class="step-content"><div class="step-title">Activer & Fidéliser</div><div class="step-desc">Dossiers reçus tracés automatiquement par source. Bilan mensuel automatique envoyé à chaque prescripteur. Point trimestriel programmé.</div><div class="step-accord">"Merci pour l'aide apportée. La collaboration est au rendez-vous."</div></div></div>
+      </div>
+      <div class="modal-section-title">Ce que NexiCare automatise</div>
+      <div class="modal-grid-2">
+        <div class="modal-feature"><div class="modal-feature-icon">🗺️</div><div><div class="modal-feature-title">Cartographie territoriale</div><div class="modal-feature-desc">Visualisation dynamique des partenaires et des flux d'orientation. Qui vous envoie quoi, depuis où.</div></div></div>
+        <div class="modal-feature"><div class="modal-feature-icon">📊</div><div><div class="modal-feature-title">Bilan mensuel auto</div><div class="modal-feature-desc">Généré et envoyé automatiquement à chaque prescripteur actif. Transparence et fidélisation sans effort.</div></div></div>
+        <div class="modal-feature"><div class="modal-feature-icon">🔔</div><div><div class="modal-feature-title">Relances programmées</div><div class="modal-feature-desc">J+15 après le premier contact, point trimestriel, rapport sous 48h en cas de situation complexe.</div></div></div>
+        <div class="modal-feature"><div class="modal-feature-icon">📋</div><div><div class="modal-feature-title">Convention intégrée</div><div class="modal-feature-desc">Modèle de convention personnalisable selon Hôpitaux, CCAS, SSIAD/SAD. Générée en 1 clic.</div></div></div>
+      </div>
+      <div class="modal-kpis">
+        <div class="modal-kpi"><div class="modal-kpi-val">+25%</div><div class="modal-kpi-lbl">Partenaires réellement actifs</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">90%</div><div class="modal-kpi-lbl">Dossiers tracés par source</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">48h</div><div class="modal-kpi-lbl">Délai rapport situation complexe</div></div>
+      </div>
+      <div class="modal-cta">
+        <div class="modal-cta-text">Vous voulez voir la roadmap partenariale en action ?</div>
+        <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODALE 03 — Familles & Aidants ────────────────── -->
+<div id="modal-03" class="modal-overlay" onclick="closeModalOutside(event, 'modal-03')">
+  <div class="modal-box">
+    <div class="modal-nav-bar">
+      <div class="modal-nav-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#28CA41"></span></div>
+      <div class="modal-tab">⚡ Poste de commande</div>
+      <div class="modal-tab">📋 Parcours</div>
+      <div class="modal-tab">🤝 Partenaires</div>
+      <div class="modal-tab active">👨‍👩‍👧 Familles & Aidants</div>
+      <div class="modal-tab">📊 Pilotage</div>
+      <div class="modal-tab">✅ Qualité</div>
+    </div>
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-badge" style="background:#F3F0FA">👨‍👩‍👧</div>
+        <div><div class="modal-title">Familles & Aidants</div><div class="modal-subtitle">Centraliser la relation avec les proches — moins d'appels, plus de confiance</div></div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-03')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-verbatim">
+        "Les familles appellent à toute heure pour savoir si on a reçu leur document, si le RDV est confirmé. On passe un temps fou à chercher dans nos mails. Et les coordinatrices ne savent pas toutes la même chose."
+        <div class="modal-verbatim-author">— Coordinatrice EHPAD, 90 résidents</div>
+      </div>
+      <div class="modal-section-title">Le process en 5 étapes</div>
+      <div class="modal-steps">
+        <div class="modal-step"><div class="step-num" style="background:#5B2C8D">1</div><div class="step-content"><div class="step-title">Contact entrant tracé</div><div class="step-desc">Appel, mail ou message → tracé automatiquement sur la fiche famille. Horodaté. Visible par toute l'équipe.</div><div class="step-accord">✓ Échange visible par tous, aucune perte d'information</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#5B2C8D">2</div><div class="step-content"><div class="step-title">Traitement & délégation</div><div class="step-desc">Action créée dans le backlog, assignée à la bonne personne automatiquement. Délai de traitement visible.</div><div class="step-accord">✓ Demande prise en charge, aucun oubli possible</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#5B2C8D">3</div><div class="step-content"><div class="step-title">Relance automatique</div><div class="step-desc">Aucune réponse de la famille sous J+X → rappel automatique programmé. Zéro intervention manuelle.</div><div class="step-accord">✓ Zéro relance oubliée, zéro intervention manuelle</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#5B2C8D">4</div><div class="step-content"><div class="step-title">Documents & signature</div><div class="step-desc">Pièce à signer ? Notification famille + dépôt sécurisé + signature électronique intégrée. Récupération en 24h.</div><div class="step-accord">✓ Document récupéré sans courrier ni déplacement</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#5B2C8D">5</div><div class="step-content"><div class="step-title">Satisfaction en continu</div><div class="step-desc">Questionnaire satisfaction déclenché automatiquement sur événements clés (admission, bilan, sortie). Résultats agrégés.</div><div class="step-accord">✓ Perception famille mesurée et pilotée en continu</div></div></div>
+      </div>
+      <div class="modal-kpis">
+        <div class="modal-kpi"><div class="modal-kpi-val">−35%</div><div class="modal-kpi-lbl">Appels répétitifs traités</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">24h</div><div class="modal-kpi-lbl">Délai récupération documents</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">+20 pts</div><div class="modal-kpi-lbl">Satisfaction famille</div></div>
+      </div>
+      <div class="modal-cta">
+        <div class="modal-cta-text">Voir comment NexiCare transforme la relation famille ?</div>
+        <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODALE 04 — Pilotage & Indicateurs ────────────── -->
+<div id="modal-04" class="modal-overlay" onclick="closeModalOutside(event, 'modal-04')">
+  <div class="modal-box">
+    <div class="modal-nav-bar">
+      <div class="modal-nav-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#28CA41"></span></div>
+      <div class="modal-tab">⚡ Poste de commande</div>
+      <div class="modal-tab">📋 Parcours</div>
+      <div class="modal-tab">🤝 Partenaires</div>
+      <div class="modal-tab">👨‍👩‍👧 Familles</div>
+      <div class="modal-tab active">📊 Pilotage & Indicateurs</div>
+      <div class="modal-tab">✅ Qualité</div>
+    </div>
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-badge" style="background:#E6F4F4">📊</div>
+        <div><div class="modal-title">Pilotage & Indicateurs</div><div class="modal-subtitle">Voir, décider, anticiper — sans passer des heures à préparer des tableaux</div></div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-04')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-verbatim">
+        "Avant chaque réunion de direction, je passe deux heures à consolider des chiffres dans Excel. Et quand je les présente, ils ont déjà un jour de retard. Je pilote dans le rétroviseur."
+        <div class="modal-verbatim-author">— Directeur EHPAD multi-sites, 3 établissements</div>
+      </div>
+      <div class="modal-section-title">Le process en 5 étapes</div>
+      <div class="modal-steps">
+        <div class="modal-step"><div class="step-num" style="background:#1A3C6E">1</div><div class="step-content"><div class="step-title">Poste de commande</div><div class="step-desc">Dès l'ouverture : actions urgentes, alertes, dossiers inactifs, priorités du jour. Synthèse automatique en temps réel.</div><div class="step-accord">✓ Situation comprise en 10 secondes</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#1A3C6E">2</div><div class="step-content"><div class="step-title">Détection des blocages</div><div class="step-desc">Dossier inactif ou tâche en retard → alerte automatique au responsable concerné. Aucune intervention manuelle.</div><div class="step-accord">✓ Blocage traité avant qu'il devienne un problème</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#1A3C6E">3</div><div class="step-content"><div class="step-title">Suivi d'activité temps réel</div><div class="step-desc">Flux entrants, taux d'occupation, admissions, parcours — mis à jour en continu à chaque action saisie.</div><div class="step-accord">✓ Décisions basées sur des données fraîches</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#1A3C6E">4</div><div class="step-content"><div class="step-title">TDB ANAP / ARS</div><div class="step-desc">Indicateurs obligatoires pré-calculés automatiquement. Export PDF en 1 clic. Campagne préparée en 30 minutes au lieu de 3 semaines.</div><div class="step-accord">✓ Campagne annuelle prête sans stress</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#1A3C6E">5</div><div class="step-content"><div class="step-title">Reporting direction</div><div class="step-desc">Rapport PDF mis en forme automatiquement avec les données fraîches. Partageable immédiatement. Vue multi-sites pour les groupes.</div><div class="step-accord">✓ Rapport professionnel partageable en 1 clic</div></div></div>
+      </div>
+      <div class="modal-kpis">
+        <div class="modal-kpi"><div class="modal-kpi-val">−50%</div><div class="modal-kpi-lbl">Temps de production reporting</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">30 min</div><div class="modal-kpi-lbl">Pour préparer la campagne ANAP</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">Temps réel</div><div class="modal-kpi-lbl">Détection des blocages</div></div>
+      </div>
+      <div class="modal-cta">
+        <div class="modal-cta-text">Voir le tableau de bord NexiCare en action ?</div>
+        <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODALE 05 — Qualité HAS ────────────────────────── -->
+<div id="modal-05" class="modal-overlay" onclick="closeModalOutside(event, 'modal-05')">
+  <div class="modal-box">
+    <div class="modal-nav-bar">
+      <div class="modal-nav-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#28CA41"></span></div>
+      <div class="modal-tab">⚡ Poste de commande</div>
+      <div class="modal-tab">📋 Parcours</div>
+      <div class="modal-tab">🤝 Partenaires</div>
+      <div class="modal-tab">👨‍👩‍👧 Familles</div>
+      <div class="modal-tab">📊 Pilotage</div>
+      <div class="modal-tab active">✅ Qualité & HAS</div>
+    </div>
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-badge" style="background:#FEF2F2">✅</div>
+        <div><div class="modal-title">Qualité, Risques & Conformité HAS</div><div class="modal-subtitle">18 critères impératifs couverts nativement — la preuve se construit chaque jour</div></div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-05')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-verbatim">
+        "Quand l'évaluatrice HAS a appelé pour fixer la date, j'ai eu un coup au cœur. J'avais trois semaines pour reconstituer trois ans de preuves. Je n'ai pas dormi de la semaine précédant la visite."
+        <div class="modal-verbatim-author">— Responsable qualité EHPAD, 110 lits</div>
+      </div>
+      <div class="modal-section-title">Le process en 5 étapes</div>
+      <div class="modal-steps">
+        <div class="modal-step"><div class="step-num" style="background:#A0264A">1</div><div class="step-content"><div class="step-title">Déclaration terrain mobile</div><div class="step-desc">EI, plainte ou incident → formulaire guidé depuis smartphone en 2 minutes. Qualification automatique de la gravité. Zéro papier.</div><div class="step-accord">✓ EI déclaré, tracé, transmis — zéro papier</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#A0264A">2</div><div class="step-content"><div class="step-title">Qualification & analyse</div><div class="step-desc">Circuit d'analyse structuré — causes, gravité, responsable — workflow guidé pas à pas. Analyse complète en 15 minutes.</div><div class="step-accord">✓ Analyse traçable et complète</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#A0264A">3</div><div class="step-content"><div class="step-title">Plan d'action automatique</div><div class="step-desc">Actions correctives créées, assignées et planifiées automatiquement dans le backlog. Alertes si échéances dépassées.</div><div class="step-accord">✓ Plan d'action actif, suivi en temps réel</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#A0264A">4</div><div class="step-content"><div class="step-title">Traçabilité continue</div><div class="step-desc">Les 18 critères HAS sont alimentés automatiquement par l'usage quotidien de NexiCare. Sans charge administrative supplémentaire.</div><div class="step-accord">✓ Conformité construite chaque jour</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#A0264A">5</div><div class="step-content"><div class="step-title">Export preuves HAS</div><div class="step-desc">Registres complets exportables en 1 clic. Preuves horodatées et organisées par critère HAS. Évaluation préparée en quelques heures.</div><div class="step-accord">✓ Plus jamais dans l'urgence avant la visite</div></div></div>
+      </div>
+      <div class="modal-kpis">
+        <div class="modal-kpi"><div class="modal-kpi-val">100%</div><div class="modal-kpi-lbl">18 critères HAS couverts</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">−60%</div><div class="modal-kpi-lbl">Temps préparation évaluation</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">2 min</div><div class="modal-kpi-lbl">Pour déclarer un EI depuis smartphone</div></div>
+      </div>
+      <div class="modal-cta">
+        <div class="modal-cta-text">Voir comment NexiCare couvre vos 18 critères HAS ?</div>
+        <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODALE 06 — Vie Sociale ────────────────────────── -->
+<div id="modal-06" class="modal-overlay" onclick="closeModalOutside(event, 'modal-06')">
+  <div class="modal-box">
+    <div class="modal-nav-bar">
+      <div class="modal-nav-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#28CA41"></span></div>
+      <div class="modal-tab">⚡ Poste de commande</div>
+      <div class="modal-tab">📋 Parcours</div>
+      <div class="modal-tab">🤝 Partenaires</div>
+      <div class="modal-tab">👨‍👩‍👧 Familles</div>
+      <div class="modal-tab">📊 Pilotage</div>
+      <div class="modal-tab active">🎨 Vie Sociale</div>
+    </div>
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-badge" style="background:#FFF8DC">🎨</div>
+        <div><div class="modal-title">Vie Sociale & Animations</div><div class="modal-subtitle">Structurer et valoriser la vie sociale — sans alourdir les équipes terrain</div></div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-06')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-verbatim">
+        "Je passe plus de temps à planifier et coordonner les activités qu'à les animer. Entre les tableaux Excel, les affiches à imprimer et les appels aux familles — c'est chronophage pour un résultat difficile à mesurer."
+        <div class="modal-verbatim-author">— Animatrice EHPAD, 80 résidents</div>
+      </div>
+      <div class="modal-section-title">Le process en 5 étapes</div>
+      <div class="modal-steps">
+        <div class="modal-step"><div class="step-num" style="background:#8B6914">1</div><div class="step-content"><div class="step-title">Planification partagée</div><div class="step-desc">Activité créée avec dates, responsable, résidents ciblés. Bibliothèque d'activités et recommandations selon les profils. Planning partagé instantanément avec toute l'équipe.</div><div class="step-accord">✓ Planning visible par tous en temps réel</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#8B6914">2</div><div class="step-content"><div class="step-title">Notification familles auto</div><div class="step-desc">Activité publiée → notification automatique aux familles concernées via portail ou mail. Aucun appel, aucun courrier.</div><div class="step-accord">✓ Familles informées sans effort supplémentaire</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#8B6914">3</div><div class="step-content"><div class="step-title">Suivi présences mobile</div><div class="step-desc">Saisie des présences depuis smartphone en temps réel pendant l'activité. Présent, absent, motif. Données tracées sans effort.</div><div class="step-accord">✓ Participation tracée, données fiables</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#8B6914">4</div><div class="step-content"><div class="step-title">Profil individuel</div><div class="step-desc">Historique participation par résident. Préférences identifiées automatiquement. Personnalisation des activités proposées.</div><div class="step-accord">✓ Activités adaptées à chaque profil</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#8B6914">5</div><div class="step-content"><div class="step-title">Rapport & indicateurs HAS</div><div class="step-desc">Indicateurs vie sociale générés automatiquement — taux de participation, diversité des activités. Exportables pour les évaluations HAS et dialogues de gestion.</div><div class="step-accord">✓ Preuves vie sociale en 1 clic</div></div></div>
+      </div>
+      <div class="modal-kpis">
+        <div class="modal-kpi"><div class="modal-kpi-val">+20%</div><div class="modal-kpi-lbl">Taux de participation</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">−30%</div><div class="modal-kpi-lbl">Temps de coordination</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">1 clic</div><div class="modal-kpi-lbl">Export indicateurs HAS vie sociale</div></div>
+      </div>
+      <div class="modal-cta">
+        <div class="modal-cta-text">Voir comment structurer la vie sociale avec NexiCare ?</div>
+        <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODALE 07 — Portail Famille ───────────────────── -->
+<div id="modal-07" class="modal-overlay" onclick="closeModalOutside(event, 'modal-07')">
+  <div class="modal-box">
+    <div class="modal-nav-bar">
+      <div class="modal-nav-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#28CA41"></span></div>
+      <div class="modal-tab">⚡ Poste de commande</div>
+      <div class="modal-tab">📋 Parcours</div>
+      <div class="modal-tab">🤝 Partenaires</div>
+      <div class="modal-tab">👨‍👩‍👧 Familles</div>
+      <div class="modal-tab">📊 Pilotage</div>
+      <div class="modal-tab active">🏠 Portail Famille</div>
+    </div>
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-badge" style="background:#F0FDF4">🏠</div>
+        <div><div class="modal-title">Portail Famille</div><div class="modal-subtitle">Un canal moderne et sécurisé pour les proches — sans surcharger vos équipes</div></div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-07')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-verbatim">
+        "Les familles veulent du lien, de la transparence, des réponses rapides. Et nous, on n'a pas le temps de rappeler tout le monde. Il faut un canal qui leur donne accès à ce dont ils ont besoin — sans multiplier nos sollicitations."
+        <div class="modal-verbatim-author">— Directrice EHPAD, 95 résidents</div>
+      </div>
+      <div class="modal-section-title">Le process en 5 étapes</div>
+      <div class="modal-steps">
+        <div class="modal-step"><div class="step-num" style="background:#2E7D32">1</div><div class="step-content"><div class="step-title">Invitation automatique</div><div class="step-desc">Admission validée → email automatique à la famille avec lien sécurisé et guide de connexion. Accès immédiat sans démarche.</div><div class="step-accord">✓ Famille connectée dès le premier jour</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#2E7D32">2</div><div class="step-content"><div class="step-title">Information continue</div><div class="step-desc">Événement ou mise à jour → notification push automatique aux familles concernées. Pas d'appel, pas de courrier.</div><div class="step-accord">✓ Famille informée sans intervention équipe</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#2E7D32">3</div><div class="step-content"><div class="step-title">Messagerie encadrée</div><div class="step-desc">Échanges tracés avec SLA configurables. Alerte si délai de réponse dépassé. Équipe responsabilisée, famille rassurée.</div><div class="step-accord">✓ Échanges tracés, délais tenus</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#2E7D32">4</div><div class="step-content"><div class="step-title">Documents en ligne</div><div class="step-desc">Pièce à signer → dépôt sur portail + notification famille + signature électronique + accusé de réception automatique.</div><div class="step-accord">✓ Document récupéré en 24h, zéro courrier</div></div></div>
+        <div class="modal-step"><div class="step-num" style="background:#2E7D32">5</div><div class="step-content"><div class="step-title">Satisfaction continue</div><div class="step-desc">Questionnaires déclenchés automatiquement sur événements clés. Résultats agrégés. Alerte si score dégradé. Problèmes détectés tôt.</div><div class="step-accord">✓ Satisfaction pilotée en continu</div></div></div>
+      </div>
+      <div class="modal-kpis">
+        <div class="modal-kpi"><div class="modal-kpi-val">−35%</div><div class="modal-kpi-lbl">Appels répétitifs traités</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">×3</div><div class="modal-kpi-lbl">Taux de réponse aux enquêtes</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">24h</div><div class="modal-kpi-lbl">Délai récupération documents</div></div>
+      </div>
+      <div class="modal-cta">
+        <div class="modal-cta-text">Voir le portail famille NexiCare en action ?</div>
+        <a href="https://calendly.com/bertrand-xn-strm-xoa/30min" target="_blank" class="btn-modal-cta">Demander une démo →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCRIPTS ══════════════════════════════════════════ -->
 <script>
+// Modales
+function openModal(id) {
+  const modal = document.getElementById(id);
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  const modal = document.getElementById(id);
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOutside(event, id) {
+  if (event.target === document.getElementById(id)) closeModal(id);
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(m => {
+      m.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+});
+
+// Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, entry.target.dataset.delay || 0);
+      setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0);
       observer.unobserve(entry.target);
     }
   });
 }, { threshold: 0.12 });
-
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-const chartObs = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll('.bar').forEach((bar, i) => {
-        setTimeout(() => { bar.style.opacity = '1'; }, i * 80);
-      });
-    }
-  });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.chart-row').forEach(el => chartObs.observe(el));
-
+// Stats counter
 const counters = document.querySelectorAll('.stat-num');
 const statObs = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
+    if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; }
   });
 }, { threshold: 0.5 });
-
 counters.forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
+  el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity .6s ease, transform .6s ease';
   statObs.observe(el);
 });
