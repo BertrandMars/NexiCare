@@ -92,6 +92,7 @@ body {
   font-weight: 300;
   animation: fadeUp .8s .3s ease both;
 }
+.hero-cta-row a { text-decoration: none; display: inline-block; }
 .hero-cta-row {
   display: flex;
   align-items: center;
@@ -727,6 +728,7 @@ section { padding: 100px 80px; }
 .cta-final .section-title { color: #fff; max-width: 600px; margin: 0 auto 20px; }
 .cta-final .section-sub   { color: rgba(255,255,255,.55); margin: 0 auto 48px; }
 .cta-row { display: flex; align-items: center; justify-content: center; gap: 20px; }
+.cta-row a { text-decoration: none; display: inline-block; }
 .btn-secondary {
   background: transparent;
   color: rgba(255,255,255,.7);
@@ -739,6 +741,17 @@ section { padding: 100px 80px; }
   transition: border-color .2s, color .2s;
 }
 .btn-secondary:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+
+/* Fix anchor-wrapped buttons */
+a:has(.btn-primary), a:has(.btn-secondary) {
+  text-decoration: none;
+  display: inline-block;
+}
+a:has(.btn-primary) .btn-primary,
+a:has(.btn-secondary) .btn-secondary {
+  cursor: pointer;
+  pointer-events: auto;
+}
 .founders-strip {
   margin-top: 60px;
   display: flex;
