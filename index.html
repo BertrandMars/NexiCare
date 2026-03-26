@@ -2197,5 +2197,58 @@ document.querySelectorAll('.modal-overlay').forEach(m => m.style.display = 'none
   </div>
 </div>
 
+
+<script>
+// ── Lead Gate ─────────────────────────────────────────────────
+const TEASER_URL = "https://docs.google.com/document/d/1mkjsjX6vQ9ETNagPN-Cbi4tidBQEvEo9/export?format=docx";
+
+function openLead() {
+  const m = document.getElementById('lead-modal');
+  m.style.display = 'flex';
+  requestAnimationFrame(() => m.classList.add('open'));
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLead() {
+  const m = document.getElementById('lead-modal');
+  m.classList.remove('open');
+  setTimeout(() => { if (!m.classList.contains('open')) m.style.display = 'none'; }, 260);
+  document.body.style.overflow = '';
+}
+
+async function handleLeadSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('lead-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span>⏳</span> Envoi en cours…';
+
+  const form = document.getElementById('lead-form');
+  const data = new FormData(form);
+
+  try {
+    await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+  } catch(err) {}
+
+  // Ouvrir le teaser dans tous les cas
+  window.open(TEASER_URL, '_blank');
+
+  // Afficher le message de succès
+  form.style.display = 'none';
+  document.getElementById('lead-success').style.display = 'block';
+
+  // Fermer la modale après 4 secondes
+  setTimeout(closeLead, 4000);
+}
+
+// Init lead modal
+document.addEventListener('DOMContentLoaded', function() {
+  const lm = document.getElementById('lead-modal');
+  if (lm) lm.style.display = 'none';
+});
+</script>
 </body>
 </html>
