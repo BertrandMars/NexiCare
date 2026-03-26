@@ -697,6 +697,181 @@ section { padding: 100px 80px; }
   .reveal, .stat-num { transition: none !important; animation: none !important; }
 }
 
+
+/* ── MODALE LEAD GATE ─────────────────────────────────────────── */
+.lead-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,20,40,.88);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.lead-overlay.open {
+  display: flex;
+  opacity: 1;
+}
+.lead-box {
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 40px 80px rgba(0,0,0,.35);
+  overflow: hidden;
+  transform: translateY(16px) scale(.97);
+  transition: transform .3s ease;
+}
+.lead-overlay.open .lead-box {
+  transform: translateY(0) scale(1);
+}
+.lead-header {
+  background: var(--navy-d);
+  padding: 28px 32px 24px;
+  position: relative;
+}
+.lead-header-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.lead-header-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.lead-header-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+}
+.lead-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.1);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: rgba(255,255,255,.6);
+  transition: background .2s;
+}
+.lead-close:hover { background: rgba(255,255,255,.2); }
+.lead-body {
+  padding: 28px 32px 32px;
+}
+.lead-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.lead-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+.lead-field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--dark);
+  letter-spacing: .02em;
+}
+.lead-field input {
+  padding: 11px 14px;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--dark);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  background: #FAFAFA;
+}
+.lead-field input:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(14,124,123,.1);
+  background: #fff;
+}
+.lead-field input::placeholder { color: #9CA3AF; }
+.lead-submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s, background .2s;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.lead-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(224,123,57,.4);
+}
+.lead-submit:disabled {
+  background: #9CA3AF;
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+.lead-note {
+  text-align: center;
+  font-size: 11px;
+  color: #9CA3AF;
+  margin-top: 14px;
+  line-height: 1.5;
+}
+.lead-success {
+  display: none;
+  text-align: center;
+  padding: 32px;
+}
+.lead-success-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+.lead-success-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+.lead-success-sub {
+  font-size: 14px;
+  color: var(--grey);
+  line-height: 1.6;
+}
+
+@media (max-width: 500px) {
+  .lead-row { grid-template-columns: 1fr; }
+  .lead-body { padding: 20px; }
+  .lead-header { padding: 20px; }
+}
+
 </style>
 </head>
 <body>
@@ -1212,7 +1387,7 @@ section { padding: 100px 80px; }
   <p class="section-sub">On cherche 15 à 20 structures avec lesquelles construire NexiCare. Pas 50 clients — les bons partenaires.</p>
   <div class="cta-row">
     <a href="https://calendly.com/nexicare/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">Discutons 30 minutes</a>
-    <a href="https://docs.google.com/document/d/1mkjsjX6vQ9ETNagPN-Cbi4tidBQEvEo9/edit?usp=drive_link&ouid=114717049404400944409&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="btn-secondary">Télécharger le teaser</a>
+    <button onclick="openLead()" class="btn-secondary" style="cursor:pointer;">Télécharger le teaser</button>
   </div>
   <div class="founders-strip">
     <div class="founder"><div class="founder-avatar" style="background:var(--teal)">BM</div><div><div class="founder-name">Bertrand Mars</div><div class="founder-role">Co-fondateur · 15 ans médico-social<br>Stratégie & Développement commercial</div></div></div>
@@ -1950,5 +2125,77 @@ document.querySelectorAll('.stat-num').forEach(el => {
 // ── Init : toutes les modales en display:none ─────────────────────
 document.querySelectorAll('.modal-overlay').forEach(m => m.style.display = 'none');
 </script>
+
+<!-- ══ MODALE LEAD GATE — Télécharger le teaser ══════════════════ -->
+<div id="lead-modal" class="lead-overlay" onclick="if(event.target===this)closeLead()">
+  <div class="lead-box">
+    <div class="lead-header">
+      <div class="lead-header-eyebrow">Document confidentiel</div>
+      <div class="lead-header-title">Télécharger le teaser NexiCare</div>
+      <div class="lead-header-sub">Laissez vos coordonnées — le teaser s'ouvre immédiatement.</div>
+      <button class="lead-close" onclick="closeLead()">✕</button>
+    </div>
+
+    <div class="lead-body">
+      <form id="lead-form"
+            action="https://formspree.io/f/mreogwzl"
+            method="POST"
+            onsubmit="handleLeadSubmit(event)">
+
+        <input type="hidden" name="_subject" value="NexiCare — Nouveau téléchargement teaser">
+        <input type="hidden" name="_replyto" id="hidden-email">
+
+        <div class="lead-row">
+          <div class="lead-field">
+            <label for="lead-prenom">Prénom *</label>
+            <input type="text" id="lead-prenom" name="prenom" placeholder="Sophie" required>
+          </div>
+          <div class="lead-field">
+            <label for="lead-nom">Nom *</label>
+            <input type="text" id="lead-nom" name="nom" placeholder="Dupont" required>
+          </div>
+        </div>
+
+        <div class="lead-field">
+          <label for="lead-email">Email professionnel *</label>
+          <input type="email" id="lead-email" name="email" placeholder="sophie.dupont@structure.fr"
+                 required oninput="document.getElementById('hidden-email').value=this.value">
+        </div>
+
+        <div class="lead-field">
+          <label for="lead-tel">Téléphone</label>
+          <input type="tel" id="lead-tel" name="telephone" placeholder="06 12 34 56 78">
+        </div>
+
+        <div class="lead-field">
+          <label for="lead-structure">Structure (optionnel)</label>
+          <input type="text" id="lead-structure" name="structure" placeholder="Nom de votre établissement">
+        </div>
+
+        <button type="submit" class="lead-submit" id="lead-btn">
+          <span>📄</span> Télécharger le teaser
+        </button>
+
+        <p class="lead-note">
+          🔒 Vos données sont confidentielles et ne seront jamais partagées.<br>
+          En soumettant, vous acceptez d'être recontacté par l'équipe NexiCare.
+        </p>
+      </form>
+
+      <div class="lead-success" id="lead-success">
+        <div class="lead-success-icon">🎉</div>
+        <div class="lead-success-title">Merci, le teaser s'ouvre !</div>
+        <div class="lead-success-sub">
+          Un membre de l'équipe NexiCare prendra contact avec vous prochainement.<br><br>
+          <a href="https://calendly.com/nexicare/30min" target="_blank"
+             style="color:var(--teal);font-weight:600;text-decoration:none;">
+            → Prendre directement RDV en 30 minutes
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
