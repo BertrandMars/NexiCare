@@ -496,6 +496,48 @@ section { padding: 100px 80px; }
 @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .hero-left, .hero-right, section, .stats-strip, .cta-final { padding-left: 24px; padding-right: 24px; } .hero-right { padding-top: 0; padding-bottom: 40px; } .stats-strip { grid-template-columns: repeat(2, 1fr); gap: 24px; } .stat-item { border-right: none; padding: 0; } .before-after-grid, .roi-grid { grid-template-columns: 1fr; } .ba-divider { padding: 24px 0; } .modules-grid { grid-template-columns: 1fr; } .timeline { grid-template-columns: 1fr; } .cta-row, .hero-cta-row, .founders-strip { flex-direction: column; align-items: flex-start; } .cta-final .cta-row { align-items: center; } .founder-sep { display: none; } .modal-grid-2 { grid-template-columns: 1fr; } .modal-kpis { flex-wrap: wrap; } }
 @media (max-width: 600px) { .hero-tagline { font-size: 36px; } .section-title { font-size: 32px; } .stats-strip { grid-template-columns: 1fr; } .btn-primary, .btn-secondary { width: 100%; } .hero-cta-row, .cta-row { width: 100%; } .cta-row { gap: 12px; } .pricing-tier { flex-direction: column; align-items: flex-start; gap: 8px; } .modal-box { border-radius: 16px; } .modal-body, .modal-header { padding: 20px; } }
 
+/* ── PRICING RESPONSIVE ──────────────────────────────────── */
+.pricing-dual-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.pricing-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(224,123,57,.18) 0%, rgba(14,124,123,.18) 100%);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  padding: 14px 20px;
+  margin-bottom: 20px;
+}
+.pricing-box { padding: 40px; }
+
+@media (max-width: 720px) {
+  .pricing-dual-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .pricing-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .pricing-banner > div[style*="width:1px"] {
+    display: none;
+  }
+  .pricing-box {
+    padding: 24px 20px;
+    border-radius: 14px;
+  }
+  .pricing-title {
+    font-size: 22px;
+  }
+}
+
 /* ── MOCKUPS MODAUX ─────────────────────────────────────────────── */
 .modal-mockup-full {
   background: #0A1628;
@@ -772,7 +814,7 @@ section { padding: 100px 80px; }
 <section class="modules">
   <div class="section-eyebrow">L'architecture fonctionnelle</div>
   <h2 class="section-title">8 briques fonctionnelles interconnectées.<br>Interopérables avec vos outils métiers.</h2>
-  <p class="section-sub">Chaque brique fonctionnelle alimente les autres automatiquement. Saisir une fois, voir partout. Compatible avec NetSoins, Titan, Ogust, ViaTrajectoire, Etc..</p>
+  <p class="section-sub">Chaque brique fonctionnelle alimente les autres automatiquement. Saisir une fois, voir partout. Compatible avec NetSoins, Titan, Ogust, ViaTrajectoire.</p>
   <div class="modules-grid">
 
     <!-- 00 — Poste de commande -->
@@ -1033,7 +1075,7 @@ section { padding: 100px 80px; }
       <div class="pricing-title">Pack Complet NexiCare</div>
       <div class="pricing-sub">Tous les utilisateurs · Sans limite · Un seul tarif selon votre taille</div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+      <div class="pricing-dual-grid">
 
         <div>
           <div style="font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.45);font-weight:600;margin-bottom:8px;">
@@ -1083,7 +1125,7 @@ section { padding: 100px 80px; }
 
       </div>
 
-        <!-- Ligne groupe / marque blanche -->
+      <!-- Ligne groupe / marque blanche -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
         <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:12px;">
           <span style="font-size:20px;flex-shrink:0;">🏢</span>
@@ -1100,19 +1142,9 @@ section { padding: 100px 80px; }
           </div>
         </div>
       </div>
- 
+
       <!-- Bandeau groupe & marque blanche -->
-      <div style="
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        background: linear-gradient(135deg, rgba(224,123,57,.18) 0%, rgba(14,124,123,.18) 100%);
-        border: 1px solid rgba(255,255,255,.12);
-        border-radius: 10px;
-        padding: 14px 20px;
-        margin-bottom: 20px;
-      ">
+      <div class="pricing-banner">
         <div style="display:flex;align-items:center;gap:10px;flex:1;">
           <span style="font-size:18px;">🏢</span>
           <div>
@@ -1147,7 +1179,7 @@ section { padding: 100px 80px; }
           </a>
         </div>
       </div>
-      
+
       <div class="pricing-note">
         Toutes les fonctionnalités incluses dans chaque tarif — <strong>sans option à la carte</strong>. Setup one-shot à l'onboarding. <strong>Engagement annuel</strong>, résiliable à l'échéance.
         <br><br>💡 Vos outils actuels cumulés vous coûtent probablement <strong>500 à 900 €/mois</strong> pour moins de résultat.
